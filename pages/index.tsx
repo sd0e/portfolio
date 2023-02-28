@@ -3,19 +3,23 @@ import { Inter } from 'next/font/google';
 import Layout, { siteDescription, siteName } from '@/components/layout';
 import classes from '@/styles/Home.module.css';
 import Image from 'next/image';
+import { useRouter } from 'next/router';
 
-const inter = Inter({ subsets: ['latin'], weight: ['600', '700'] })
+const inter = Inter({ subsets: ['latin'], weight: ['600', '700'] });
 
 export default function Home() {
+  const router = useRouter();
+  const pathname = router.pathname;
+
   return (
-    <Layout home>
+    <Layout>
       <Head>
         <meta name="viewport" content="width=device-width, initial-scale=1" />
         <link rel="icon" href="/favicon.ico" />
       </Head>
       <Image
         priority
-        src="/assets/SVG/index.svg"
+        src={`/assets/SVG${pathname === '/' ? '/index' : pathname}.svg`}
         className={classes.homeGradient}
         height={500}
         width={500}

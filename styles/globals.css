@@ -85,7 +85,7 @@ body {
   overflow-x: hidden;
 }
 
-html, body, #root, main {
+html, body, #root {
   height: 100%;
 }
 
