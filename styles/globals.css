@@ -85,6 +85,15 @@ body {
   overflow-x: hidden;
 }
 
+html, body, #root, main {
+  height: 100%;
+}
+
+h2 {
+  color: rgba(242, 242, 242, 0.8);
+  font-weight: 600;
+}
+
 body {
   color: rgb(var(--foreground-rgb));
   background: linear-gradient(

@@ -14,15 +14,6 @@ export default function Layout({ children, home }: { children: React.ReactNode, 
                 <meta name="og:title" content={siteName} />
                 <meta name="twitter:card" content="summary_large_image" />
             </Head>
-            <header className={styles.header}>
-                {home ? (
-                    <span>Home!</span>
-                ) : (
-                <>
-                    <span>Not Home</span>
-                </>
-                )}
-            </header>
             <main>{children}</main>
         </div>
     )
