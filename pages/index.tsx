@@ -4,6 +4,7 @@ import Layout, { siteDescription, siteName } from '@/components/layout';
 import classes from '@/styles/Home.module.css';
 import Image from 'next/image';
 import { useRouter } from 'next/router';
+import Link from 'next/link';
 
 const inter = Inter({ subsets: ['latin'], weight: ['600', '700'] });
 
@@ -32,7 +33,9 @@ export default function Home() {
         </div>
       </div>
       <div className={classes.bottom}>
-        <span className={[inter.className, classes.scrollText].join(' ')}>Scroll</span>
+        <Link href="/about">
+          <span className={[inter.className, classes.scrollText].join(' ')}>Scroll</span>
+        </Link>
       </div>
     </Layout>
   )
