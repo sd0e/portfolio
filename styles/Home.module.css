@@ -45,6 +45,7 @@
     color: rgba(242, 242, 242, 0.8);
     font-weight: 600;
     animation: jumpText 4s ease-in-out infinite;
+    animation-delay: 1.5s;
 }
 
 @keyframes jumpText {
