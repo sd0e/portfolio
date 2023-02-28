@@ -31,6 +31,9 @@ export default function Home() {
           <h2 className={inter.className}>{siteDescription}</h2>
         </div>
       </div>
+      <div className={classes.bottom}>
+        <span className={[inter.className, classes.scrollText].join(' ')}>Scroll</span>
+      </div>
     </Layout>
   )
 }

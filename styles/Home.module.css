@@ -29,3 +29,32 @@
         transform: translate(-50%, -50%) rotate(360deg);
     }
 }
+
+.bottom {
+    position: absolute;
+    bottom: 4rem;
+    left: 50%;
+    transform: translate(-50%, 0);
+    right: 0;
+    text-align: center;
+}
+
+.scrollText {
+    display: block;
+    font-size: 1rem;
+    color: rgba(242, 242, 242, 0.8);
+    font-weight: 600;
+    animation: jumpText 4s ease-in-out infinite;
+}
+
+@keyframes jumpText {
+    0% {
+        transform: translateY(0);
+    }
+    10% {
+        transform: translateY(1rem);
+    }
+    20% {
+        transform: translateY(0);
+    }
+}
