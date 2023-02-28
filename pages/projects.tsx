@@ -1,6 +1,6 @@
 import Head from 'next/head';
 import { Inter } from 'next/font/google';
-import Layout, { siteDescription, siteName } from '@/components/layout';
+import Layout from '@/components/layout';
 import { useRouter } from 'next/router';
 
 const inter = Inter({ subsets: ['latin'], weight: ['600', '700'] })

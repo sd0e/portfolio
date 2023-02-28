@@ -15,15 +15,37 @@ export default function Layout({ children, mainPage = false, title, description,
     const gradientImage = image || '@/assets/SVG/index.svg';
     const router = useRouter();
 
+    let prevY = 0;
+    let lastTimestamp = 0;
+
     let useNext = true;
     if (typeof window !== 'undefined') {
         useNext = (window as any).next;
+
+        window.addEventListener('keydown', e => {
+            if (e.timeStamp - lastTimestamp < 100 || e.repeat) return;
+            lastTimestamp = e.timeStamp;
+            if (e.key === 'ArrowDown' && next) moveNext();
+            else if (e.key === 'ArrowUp' && prev) movePrev();
+        });
     }
 
     const variants = {
         hidden: { opacity: 0, x: 0, y: useNext ? 400 : -400 },
         enter: { opacity: 1, x: 0, y: 0 },
         exit: { opacity: 0, x: 0, y: useNext ? -400 : 400 },
+    }
+
+    const moveNext = (): void => {
+        if (!next) return;
+        (window as any).next = true;
+        router.push(next);
+    }
+
+    const movePrev = (): void => {
+        if (!prev) return;
+        (window as any).next = false;
+        router.push(prev);
     }
 
     return (
@@ -36,11 +58,18 @@ export default function Layout({ children, mainPage = false, title, description,
             transition={{ type: 'ease-in-out', duration: 0.25 }}
             onWheel={e => {
                 if (e.deltaY > 0 && next) {
-                    (window as any).next = true;
-                    router.push(next);
+                    moveNext();
                 } else if (e.deltaY < 0 && prev) {
-                    (window as any).next = false;
-                    router.push(prev);
+                    movePrev();
+                }
+            }}
+            onTouchStart={e => prevY = e.nativeEvent.touches[0].clientY}
+            onTouchEnd={e => {
+                const deltaYSwipe = e.changedTouches[0].clientY - prevY;
+                if (deltaYSwipe < 0 && next) {
+                    moveNext();
+                } else if (deltaYSwipe > 0 && prev) {
+                    movePrev();
                 }
             }}
         >

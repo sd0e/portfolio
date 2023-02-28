@@ -118,3 +118,9 @@ a {
     color-scheme: dark;
   }
 }
+
+p {
+  color: rgba(242, 242, 242, 0.8);
+  font-size: 1.2rem;
+  line-height: 2rem;
+}

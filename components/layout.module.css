@@ -1,6 +1,6 @@
 .container {
 	max-width: 50rem;
-	padding: 0 1rem;
+	padding: 0 3rem;
 	margin: 5rem auto 6rem;
 	height: calc(100vh - 11rem);
 }
@@ -29,4 +29,5 @@
 	font-weight: 600;
 	font-size: 1.2rem;
 	color: rgba(242, 242, 242, 0.8);
+	line-height: 2rem;
 }
