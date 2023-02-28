@@ -89,6 +89,10 @@ html, body, #root {
   height: 100%;
 }
 
+#__next {
+  overflow-y: hidden;
+}
+
 h2 {
   color: rgba(242, 242, 242, 0.8);
   font-weight: 600;

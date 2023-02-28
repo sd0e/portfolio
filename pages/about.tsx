@@ -10,7 +10,7 @@ export default function Home() {
   const pathname = router.pathname;
 
   return (
-    <Layout mainPage title="About Me" description="Hey, I’m a 17-year-old software engineer based in the UK" image={`/assets/SVG${pathname}.svg`}>
+    <Layout mainPage title="About Me" description="Hey, I’m a 17-year-old software engineer based in the UK" image={`/assets/SVG${pathname}.svg`} prev="/" next="/skills">
       <Head>
         <meta name="viewport" content="width=device-width, initial-scale=1" />
         <link rel="icon" href="/favicon.ico" />

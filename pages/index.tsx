@@ -13,7 +13,7 @@ export default function Home() {
   const pathname = router.pathname;
 
   return (
-    <Layout>
+    <Layout next="/about">
       <Head>
         <meta name="viewport" content="width=device-width, initial-scale=1" />
         <link rel="icon" href="/favicon.ico" />
