@@ -117,7 +117,15 @@ export default function Layout({ children, mainPage = false, title, description,
                     </motion.span>
                 </div>
             </> : null}
-            <main style={{ height: mainPage ? 'auto' : '100%' }}>{children}</main>
+            <motion.main
+                style={{ height: mainPage ? 'auto' : '100%' }}
+                variants={enterVariants}
+                initial="hidden"
+                animate="enter"
+                transition={{ type: 'ease-in-out', duration: 0.25, delay: 0.25 }}
+            >
+                {children}
+            </motion.main>
         </motion.div>
     )
 }
