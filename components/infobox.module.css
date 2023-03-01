@@ -19,6 +19,7 @@
 	font-weight: 600;
 	color: rgba(242, 242, 242, 0.8);
 	margin-bottom: 1rem;
+	line-height: 1.4rem;
 }
 
 .description {
@@ -26,4 +27,5 @@
 	font-weight: 500;
 	color: rgba(242, 242, 242, 0.6);
 	font-size: 0.9rem;
+	line-height: 1.3rem;
 }

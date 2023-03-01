@@ -16,7 +16,7 @@ export default function Home() {
         <meta name="viewport" content="width=device-width, initial-scale=1" />
         <link rel="icon" href="/favicon.ico" />
       </Head>
-      <p className={inter.className}>I am a 17-year-old software engineer based in the UK.</p>
+      <p className={inter.className}>I am a 17-year-old software engineer based in the UK. I love developing tools which help people.</p>
       <InfoBox Title="Available for work experience!" Description="I am available for work experience in July 2023 in London or online, please get in touch." />
     </Layout>
   )
