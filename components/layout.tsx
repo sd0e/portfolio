@@ -56,13 +56,8 @@ export default function Layout({ children, mainPage = false, title, description,
     }
 
     return (
-        <motion.div
-            className={styles.container}
-            variants={variants}
-            initial="hidden"
-            animate="enter"
-            exit="exit"
-            transition={{ type: 'ease-in-out', duration: 0.25 }}
+        <div
+            className={styles.wrapper}
             onWheel={e => {
                 if (e.deltaY > 0 && next) {
                     moveNext();
@@ -80,53 +75,62 @@ export default function Layout({ children, mainPage = false, title, description,
                 }
             }}
         >
-            <Head>
-                <title>{title || siteName}</title>
-                <link rel="icon" href="/favicon.ico" />
-                <meta name="description" content={siteDescription} />
-                <meta name="og:title" content={siteName} />
-                <meta name="twitter:card" content="summary_large_image" />
-            </Head>
-            {mainPage ? <>
-                <Image
-                    priority
-                    src={gradientImage}
-                    className={styles.mainPageImage}
-                    height={250}
-                    width={250}
-                    alt="Colourful Gradient"
-                />
-                <div className={styles.mainPageHeader}>
-                    <motion.span
-                        variants={enterVariants}
-                        initial="hidden"
-                        animate="enter"
-                        transition={{ type: 'ease-in-out', duration: 0.25, delay: 0.15 }}
-                        className={[inter.className, styles.mainPageTitle].join(' ')}
-                    >
-                        {title}
-                    </motion.span>
-                    <motion.span
-                        variants={enterVariants}
-                        initial="hidden"
-                        animate="enter"
-                        transition={{ type: 'ease-in-out', duration: 0.25, delay: 0.15 }}
-                        className={[inter.className, styles.mainPageDescription].join(' ')}
-                    >
-                        {description}
-                    </motion.span>
-                </div>
-            </> : null}
-            <motion.main
-                style={{ height: mainPage ? 'auto' : '100%' }}
-                variants={enterVariants}
+            <motion.div
+                className={styles.container}
+                variants={variants}
                 initial="hidden"
                 animate="enter"
-                transition={{ type: 'ease-in-out', duration: 0.25, delay: 0.25 }}
-                className={styles.main}
+                exit="exit"
+                transition={{ type: 'ease-in-out', duration: 0.25 }}
             >
-                {children}
-            </motion.main>
-        </motion.div>
+                <Head>
+                    <title>{title || siteName}</title>
+                    <link rel="icon" href="/favicon.ico" />
+                    <meta name="description" content={siteDescription} />
+                    <meta name="og:title" content={siteName} />
+                    <meta name="twitter:card" content="summary_large_image" />
+                </Head>
+                {mainPage ? <>
+                    <Image
+                        priority
+                        src={gradientImage}
+                        className={styles.mainPageImage}
+                        height={250}
+                        width={250}
+                        alt="Colourful Gradient"
+                    />
+                    <div className={styles.mainPageHeader}>
+                        <motion.span
+                            variants={enterVariants}
+                            initial="hidden"
+                            animate="enter"
+                            transition={{ type: 'ease-in-out', duration: 0.25, delay: 0.15 }}
+                            className={[inter.className, styles.mainPageTitle].join(' ')}
+                        >
+                            {title}
+                        </motion.span>
+                        <motion.span
+                            variants={enterVariants}
+                            initial="hidden"
+                            animate="enter"
+                            transition={{ type: 'ease-in-out', duration: 0.25, delay: 0.15 }}
+                            className={[inter.className, styles.mainPageDescription].join(' ')}
+                        >
+                            {description}
+                        </motion.span>
+                    </div>
+                </> : null}
+                <motion.main
+                    style={{ height: mainPage ? 'auto' : '100%', position: mainPage ? 'relative' : 'initial' }}
+                    variants={enterVariants}
+                    initial="hidden"
+                    animate="enter"
+                    transition={{ type: 'ease-in-out', duration: 0.25, delay: 0.25 }}
+                    className={styles.main}
+                >
+                    {children}
+                </motion.main>
+            </motion.div>
+        </div>
     )
 }
