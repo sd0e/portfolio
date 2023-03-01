@@ -123,6 +123,7 @@ export default function Layout({ children, mainPage = false, title, description,
                 initial="hidden"
                 animate="enter"
                 transition={{ type: 'ease-in-out', duration: 0.25, delay: 0.25 }}
+                className={styles.main}
             >
                 {children}
             </motion.main>

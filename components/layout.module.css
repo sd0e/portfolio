@@ -31,3 +31,8 @@
 	color: rgba(242, 242, 242, 0.8);
 	line-height: 2rem;
 }
+
+.main {
+	position: relative;
+	z-index: 1;
+}
