@@ -38,6 +38,11 @@ export default function Layout({ children, mainPage = false, title, description,
         exit: { opacity: 0, x: 0, y: useNext ? -400 : 400 },
     }
 
+    const enterVariants = {
+        hidden: { opacity: 0, x: 0, y: 20 },
+        enter: { opacity: 1, x: 0, y: 0 },
+    }
+
     const moveNext = (): void => {
         if (!next) return;
         (window as any).next = true;
@@ -92,8 +97,24 @@ export default function Layout({ children, mainPage = false, title, description,
                     alt="Colourful Gradient"
                 />
                 <div className={styles.mainPageHeader}>
-                    <span className={[inter.className, styles.mainPageTitle].join(' ')}>{ title }</span>
-                    <span className={[inter.className, styles.mainPageDescription].join(' ')}>{ description }</span>
+                    <motion.span
+                        variants={enterVariants}
+                        initial="hidden"
+                        animate="enter"
+                        transition={{ type: 'ease-in-out', duration: 0.25, delay: 0.15 }}
+                        className={[inter.className, styles.mainPageTitle].join(' ')}
+                    >
+                        {title}
+                    </motion.span>
+                    <motion.span
+                        variants={enterVariants}
+                        initial="hidden"
+                        animate="enter"
+                        transition={{ type: 'ease-in-out', duration: 0.25, delay: 0.15 }}
+                        className={[inter.className, styles.mainPageDescription].join(' ')}
+                    >
+                        {description}
+                    </motion.span>
                 </div>
             </> : null}
             <main style={{ height: mainPage ? 'auto' : '100%' }}>{children}</main>
