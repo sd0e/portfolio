@@ -84,7 +84,7 @@ export default function Layout({ children, mainPage = false, title, description,
                 transition={{ type: 'ease-in-out', duration: 0.25 }}
             >
                 <Head>
-                    <title>{title || siteName}</title>
+                    <title>{title ? `${title} - ${siteName}` : siteName}</title>
                     <link rel="icon" href="/favicon.ico" />
                     <meta name="description" content={siteDescription} />
                     <meta name="og:title" content={siteName} />
