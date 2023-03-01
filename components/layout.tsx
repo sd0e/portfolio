@@ -7,7 +7,7 @@ import React from 'react';
 import { useRouter } from 'next/router';
 
 export const siteName = 'Seb Doe';
-export const siteDescription = 'Developer in the UK';
+export const siteDescription = 'Software Engineer';
 
 const inter = Inter({ subsets: ['latin'], weight: ['600', '700'] });
 
