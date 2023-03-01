@@ -5,6 +5,7 @@ import classes from '@/styles/Home.module.css';
 import Image from 'next/image';
 import { useRouter } from 'next/router';
 import Link from 'next/link';
+import { ArrowDownwardOutlined } from '@mui/icons-material';
 
 const inter = Inter({ subsets: ['latin'], weight: ['600', '700'] });
 
@@ -34,7 +35,8 @@ export default function Home() {
       </div>
       <div className={classes.bottom}>
         <Link href="/about">
-          <span className={[inter.className, classes.scrollText].join(' ')}>Scroll</span>
+          <ArrowDownwardOutlined className={classes.scrollIcon} />
+          {/* <span className={[inter.className, classes.scrollText].join(' ')}>Scroll</span> */}
         </Link>
       </div>
     </Layout>
