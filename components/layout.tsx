@@ -13,7 +13,7 @@ export const siteDescription = 'Software Engineer';
 
 const inter = Inter({ subsets: ['latin'], weight: ['600', '700'] });
 
-export default function Layout({ children, mainPage = false, title, description, image, prev, next }: { children: React.ReactNode, mainPage?: boolean, title?: string, description?: string, image?: string, prev?: string, next?: string }) {
+export default function Layout({ children, mainPage = false, title, description, image, prev, next, onMouseMove }: { children: React.ReactNode, mainPage?: boolean, title?: string, description?: string, image?: string, prev?: string, next?: string, onMouseMove: (e: React.MouseEvent<HTMLDivElement, MouseEvent>) => void }) {
     const gradientImage = image || '@/assets/SVG/index.svg';
     const router = useRouter();
 
@@ -74,6 +74,7 @@ export default function Layout({ children, mainPage = false, title, description,
                     movePrev();
                 }
             }}
+            onMouseMove={onMouseMove}
         >
             <motion.div
                 className={styles.container}

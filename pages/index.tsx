@@ -6,6 +6,7 @@ import Image from 'next/image';
 import { useRouter } from 'next/router';
 import Link from 'next/link';
 import { ArrowDownwardOutlined } from '@mui/icons-material';
+import { useState } from 'react';
 
 const inter = Inter({ subsets: ['latin'], weight: ['600', '700'] });
 
@@ -13,8 +14,22 @@ export default function Home() {
   const router = useRouter();
   const pathname = router.pathname;
 
+  const [centralDeltaX, setCentralDeltaX] = useState(0);
+  const [centralDeltaY, setCentralDeltaY] = useState(0);
+
+  const onMouseMove = (e: React.MouseEvent<HTMLDivElement, MouseEvent>) => {
+    const centralXDiff = window.innerWidth / 2 - e.clientX;
+    const centralYDiff = window.innerHeight / 2 - e.clientY;
+
+    const centralDeltaX = 1/(1 - (window.innerWidth / 2 + window.innerWidth / 8) / Math.abs(centralXDiff)) * 30;
+    const centralDeltaY = 1/(1 - (window.innerHeight / 2 + window.innerHeight / 8) / Math.abs(centralYDiff)) * 30;
+    
+    setCentralDeltaX(centralXDiff < 0 ? centralDeltaX : -centralDeltaX);
+    setCentralDeltaY(centralYDiff < 0 ? centralDeltaY : -centralDeltaY);
+  }
+
   return (
-    <Layout next="/about">
+    <Layout next="/about" onMouseMove={onMouseMove}>
       <Head>
         <meta name="viewport" content="width=device-width, initial-scale=1" />
         <link rel="icon" href="/favicon.ico" />
@@ -26,6 +41,7 @@ export default function Home() {
         height={500}
         width={500}
         alt="Colourful Gradient"
+        style={{ top: `calc(50% - 250px + ${centralDeltaY}px)`, left: `calc(50% - 250px + ${centralDeltaX}px)` }}
       />
       <div className={classes.homeOuter}>
         <div className={classes.homeCentral}>
