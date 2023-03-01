@@ -9,6 +9,8 @@ import { useRouter } from 'next/router';
 export const siteName = 'Seb Doe';
 export const siteDescription = 'Software Engineer';
 
+// TODO: Make pages static
+
 const inter = Inter({ subsets: ['latin'], weight: ['600', '700'] });
 
 export default function Layout({ children, mainPage = false, title, description, image, prev, next }: { children: React.ReactNode, mainPage?: boolean, title?: string, description?: string, image?: string, prev?: string, next?: string }) {

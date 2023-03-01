@@ -2,8 +2,9 @@ import Head from 'next/head';
 import { Inter } from 'next/font/google';
 import Layout from '@/components/layout';
 import { useRouter } from 'next/router';
+import InfoBox from '@/components/infobox';
 
-const inter = Inter({ subsets: ['latin'], weight: ['600', '700'] })
+const inter = Inter({ subsets: ['latin'], weight: ['500', '600', '700'] })
 
 export default function Home() {
   const router = useRouter();
@@ -16,6 +17,7 @@ export default function Home() {
         <link rel="icon" href="/favicon.ico" />
       </Head>
       <p className={inter.className}>I am a 17-year-old software engineer based in the UK.</p>
+      <InfoBox Title="Available for work experience!" Description="I am available for work experience in July 2023 in London or online, please get in touch." />
     </Layout>
   )
 }
