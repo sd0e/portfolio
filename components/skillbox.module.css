@@ -1,0 +1,23 @@
+.container {
+	border: 1px solid rgba(242, 242, 242, 0.1);
+	padding: 1rem 1.25rem;
+	border-radius: 0.5rem;
+	display: flex;
+	flex-grow: 1;
+}
+
+.title {
+	display: block;
+	font-weight: 600;
+	color: rgba(242, 242, 242, 0.8);
+	margin-bottom: 0.8rem;
+	line-height: 1.4rem;
+}
+
+.description {
+	display: block;
+	font-weight: 500;
+	color: rgba(242, 242, 242, 0.6);
+	font-size: 0.9rem;
+	line-height: 1.3rem;
+}
