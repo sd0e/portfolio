@@ -22,29 +22,26 @@ export default function Skills() {
   }, []);
 
   const skills = [
-    [
-      {
-        title: "JavaScript",
-        monthsSince2000: 12 * 17 + 2
-      }, {
-        title: "Python",
-        monthsSince2000: 12 * 18
-      }, {
-        title: "React",
-        monthsSince2000: 12 * 21 + 6
-      }
-    ], [
-      {
-        title: "TypeScript",
-        monthsSince2000: 12 * 21 + 2
-      }, {
-        title: "C#",
-        monthsSince2000: 12 * 22 + 7
-      }, {
-        title: "Go",
-        monthsSince2000: 12 * 23
-      }
-    ]
+    {
+      title: "JavaScript",
+      monthsSince2000: 12 * 17 + 2
+    }, {
+      title: "Python",
+      monthsSince2000: 12 * 18
+    }, {
+      title: "React",
+      monthsSince2000: 12 * 21 + 6
+    },
+    {
+      title: "TypeScript",
+      monthsSince2000: 12 * 21 + 2
+    }, {
+      title: "C#",
+      monthsSince2000: 12 * 22 + 7
+    }, {
+      title: "Go",
+      monthsSince2000: 12 * 23
+    }
   ];
 
   const getMonthsSince2000 = () => {
@@ -63,6 +60,19 @@ export default function Skills() {
     else return `this month`;
   }
 
+  let columnNumber = Math.ceil(windowWidth / 650);
+  if (columnNumber > 3) columnNumber = 3;
+  let columns = new Array(columnNumber);
+
+  let currColNum = 0;
+  for (let idx = 0; idx < skills.length; idx++) {
+    if (idx < columnNumber) columns[currColNum] = [];
+    columns[currColNum].push(skills[idx]);
+
+    if (currColNum === columnNumber - 1) currColNum = 0
+    else currColNum++;
+  }
+
   return (
     <Layout mainPage title="Skills" description="Some languages and frameworks I have used" image={`/assets/SVG${pathname}.svg`} prev="/about" next="/projects">
       <Head>
@@ -70,18 +80,14 @@ export default function Skills() {
         <link rel="icon" href="/favicon.ico" />
       </Head>
       <Stack direction="row" spacing={4}>
-        <Stack direction="column" spacing={4} flexGrow={1}>
-          {skills[0].map(skill => {
-            const relativeDate = parseDate(skill.monthsSince2000);
-            return <SkillBox Title={skill.title} Description={relativeDate} key={skill.title} />
-          })}
-        </Stack>
-        <Stack direction="column" spacing={4} flexGrow={1}>
-          {skills[1].map(skill => {
-            const relativeDate = parseDate(skill.monthsSince2000);
-            return <SkillBox Title={skill.title} Description={relativeDate} key={skill.title} />
-          })}
-        </Stack>
+        {columns.map((column: [{ title: string, monthsSince2000: number }], idx) => {
+          return <Stack direction="column" spacing={4} flexGrow={1} key={`column${idx}`}>
+            {column.map(columnInfo => {
+              const relativeDate = parseDate(columnInfo.monthsSince2000);
+              return <SkillBox Title={columnInfo.title} Description={relativeDate} key={columnInfo.title} />
+            })}
+          </Stack>
+        })}
       </Stack>
     </Layout>
   )
