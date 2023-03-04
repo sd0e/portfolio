@@ -41,6 +41,9 @@ export default function Skills() {
     }, {
       title: "Go",
       monthsSince2000: 12 * 23
+    }, {
+      title: "Next.js",
+      monthsSince2000: 12 * 23 + 1
     }
   ];
 
