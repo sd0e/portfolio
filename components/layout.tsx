@@ -19,6 +19,7 @@ export default function Layout({ children, mainPage = false, title, description,
 
     let prevY = 0;
     let lastTimestamp = 0;
+    let mostRecentTrigger = 0;
 
     let useNext = true;
     if (typeof window !== 'undefined') {
@@ -59,10 +60,14 @@ export default function Layout({ children, mainPage = false, title, description,
         <div
             className={styles.wrapper}
             onWheel={e => {
-                if (e.deltaY > 0 && next) {
-                    moveNext();
-                } else if (e.deltaY < 0 && prev) {
-                    movePrev();
+                if (new Date().getTime() - mostRecentTrigger > 300) {
+                    if (e.deltaY > 0 && next) {
+                        moveNext();
+                    } else if (e.deltaY < 0 && prev) {
+                        movePrev();
+                    }
+
+                    mostRecentTrigger = new Date().getTime();
                 }
             }}
             onTouchStart={e => prevY = e.nativeEvent.touches[0].clientY}
