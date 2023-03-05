@@ -44,6 +44,9 @@ export default function Skills() {
     }, {
       title: "Next.js",
       monthsSince2000: 12 * 23 + 1
+    }, {
+      title: "ASP.NET",
+      monthsSince2000: 12 * 23 + 2
     }
   ];
 
