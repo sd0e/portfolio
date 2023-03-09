@@ -31,8 +31,7 @@ export default function Skills() {
     }, {
       title: "React",
       monthsSince2000: 12 * 21 + 6
-    },
-    {
+    }, {
       title: "TypeScript",
       monthsSince2000: 12 * 21 + 2
     }, {
@@ -47,6 +46,9 @@ export default function Skills() {
     }, {
       title: "ASP.NET",
       monthsSince2000: 12 * 23 + 2
+    }, {
+      title: "Kotlin",
+      monthsSince2000: 12 * 22 + 11
     }
   ];
 
