@@ -18,7 +18,7 @@ export default function Project({ projectInfo }: { projectInfo: {
     priority: number,
 } }) {
   return (
-    <Layout headerOnly title={projectInfo.name} image={`/assets/SVG/projects.svg`} prev="/skills">
+    <Layout headerOnly scrollNav={false} title={projectInfo.name} image={`/assets/SVG/projects.svg`} prev="/skills">
       <Head>
         <meta name="viewport" content="width=device-width, initial-scale=1" />
         <link rel="icon" href="/favicon.ico" />

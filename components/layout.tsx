@@ -13,7 +13,7 @@ export const siteDescription = 'Software Engineer';
 
 const inter = Inter({ subsets: ['latin'], weight: ['600', '700'] });
 
-export default function Layout({ children, mainPage = false, headerOnly = false, title, description, image, prev, next, onMouseMove }: { children: React.ReactNode, mainPage?: boolean, headerOnly?: boolean, title?: string, description?: string, image?: string, prev?: string, next?: string, onMouseMove?: (e: React.MouseEvent<HTMLDivElement, MouseEvent>) => void }) {
+export default function Layout({ children, mainPage = false, headerOnly = false, scrollNav = true, title, description, image, prev, next, onMouseMove }: { children: React.ReactNode, mainPage?: boolean, headerOnly?: boolean, scrollNav?: boolean, title?: string, description?: string, image?: string, prev?: string, next?: string, onMouseMove?: (e: React.MouseEvent<HTMLDivElement, MouseEvent>) => void }) {
     const gradientImage = image || '@/assets/SVG/index.svg';
     const router = useRouter();
 
@@ -21,7 +21,7 @@ export default function Layout({ children, mainPage = false, headerOnly = false,
     let lastTimestamp = 0;
 
     let useNext = true;
-    if (typeof window !== 'undefined') {
+    if (typeof window !== 'undefined' && scrollNav) {
         useNext = (window as any).next;
 
         window.addEventListener('keydown', e => {
@@ -44,13 +44,13 @@ export default function Layout({ children, mainPage = false, headerOnly = false,
     }
 
     const moveNext = (): void => {
-        if (!next) return;
+        if (!next || !scrollNav) return;
         (window as any).next = true;
         router.push(next);
     }
 
     const movePrev = (): void => {
-        if (!prev) return;
+        if (!prev || !scrollNav) return;
         (window as any).next = false;
         router.push(prev);
     }
@@ -59,6 +59,7 @@ export default function Layout({ children, mainPage = false, headerOnly = false,
         <div
             className={styles.wrapper}
             onWheel={e => {
+                if (!scrollNav) return;
                 if (e.deltaY > 0 && next) {
                     moveNext();
                 } else if (e.deltaY < 0 && prev) {
@@ -67,6 +68,7 @@ export default function Layout({ children, mainPage = false, headerOnly = false,
             }}
             onTouchStart={e => prevY = e.nativeEvent.touches[0].clientY}
             onTouchEnd={e => {
+                if (!scrollNav) return;
                 const deltaYSwipe = e.changedTouches[0].clientY - prevY;
                 if (deltaYSwipe < 0 && next) {
                     moveNext();
