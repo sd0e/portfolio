@@ -13,7 +13,7 @@ export const siteDescription = 'Software Engineer';
 
 const inter = Inter({ subsets: ['latin'], weight: ['600', '700'] });
 
-export default function Layout({ children, mainPage = false, title, description, image, prev, next, onMouseMove }: { children: React.ReactNode, mainPage?: boolean, title?: string, description?: string, image?: string, prev?: string, next?: string, onMouseMove?: (e: React.MouseEvent<HTMLDivElement, MouseEvent>) => void }) {
+export default function Layout({ children, mainPage = false, headerOnly = false, title, description, image, prev, next, onMouseMove }: { children: React.ReactNode, mainPage?: boolean, headerOnly?: boolean, title?: string, description?: string, image?: string, prev?: string, next?: string, onMouseMove?: (e: React.MouseEvent<HTMLDivElement, MouseEvent>) => void }) {
     const gradientImage = image || '@/assets/SVG/index.svg';
     const router = useRouter();
 
@@ -91,7 +91,7 @@ export default function Layout({ children, mainPage = false, title, description,
                     <meta name="og:title" content={siteName} />
                     <meta name="twitter:card" content="summary_large_image" />
                 </Head>
-                {mainPage ? <>
+                {mainPage || headerOnly ? <>
                     <Image
                         priority
                         src={gradientImage}
@@ -99,6 +99,7 @@ export default function Layout({ children, mainPage = false, title, description,
                         height={250}
                         width={250}
                         alt="Colourful Gradient"
+                        draggable={false}
                     />
                     <div className={styles.mainPageHeader}>
                         <motion.span
@@ -110,7 +111,7 @@ export default function Layout({ children, mainPage = false, title, description,
                         >
                             {title}
                         </motion.span>
-                        <motion.span
+                        {mainPage ? <motion.span
                             variants={enterVariants}
                             initial="hidden"
                             animate="enter"
@@ -118,7 +119,7 @@ export default function Layout({ children, mainPage = false, title, description,
                             className={[inter.className, styles.mainPageDescription].join(' ')}
                         >
                             {description}
-                        </motion.span>
+                        </motion.span> : null}
                     </div>
                 </> : null}
                 <motion.main
