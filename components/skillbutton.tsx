@@ -22,8 +22,8 @@ const theme = createTheme({
 });
 
 export default function SkillButton({ children, onClick, Icon }: { children: string, onClick?: () => void, Icon?: SvgIconComponent }) {
-    return <ThemeProvider theme={theme}>
-        <Button onClick={onClick}>
+    return <ThemeProvider theme={theme} key={children}>
+        <Button onClick={onClick} key={`button-${children}`}>
             <div className={styles.skillButtonContents}>
                 { Icon ? <Icon className={styles.skillButtonIcon} /> : null }
                 {children}

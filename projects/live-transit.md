@@ -2,7 +2,7 @@
 name: 'LiveTransit HK'
 languages: ['React', 'JavaScript']
 month: 'Jul'
-year: 21
+year: 2021
 link: 'http://livetransit.sebdoe.com/'
 priority: 1
 ---
