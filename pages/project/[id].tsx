@@ -3,6 +3,7 @@ import { getAllProjectIds, getProjectData } from "@/lib/projects";
 import { GetStaticPaths, GetStaticProps } from "next";
 import Head from "next/head";
 import { Inter } from 'next/font/google';
+import ProjectInfo from "@/components/projectinfo";
 
 const inter = Inter({ subsets: ['latin'], weight: ['600', '700'] })
 
@@ -24,7 +25,7 @@ export default function Project({ projectInfo }: { projectInfo: {
         <meta name="viewport" content="width=device-width, initial-scale=1" />
         <link rel="icon" href="/favicon.ico" />
       </Head>
-      some more text
+      <ProjectInfo Skills={projectInfo.languages} URL={projectInfo.link} />
     </Layout>
   )
 }
