@@ -123,7 +123,7 @@ export default function Layout({ children, mainPage = false, headerOnly = false,
                     </div>
                 </> : null}
                 <motion.main
-                    style={{ height: mainPage ? 'auto' : '100%', position: mainPage ? 'relative' : 'initial' }}
+                    style={{ height: mainPage ? 'auto' : '100%', position: mainPage || headerOnly ? 'relative' : 'initial' }}
                     variants={enterVariants}
                     initial="hidden"
                     animate="enter"
