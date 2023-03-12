@@ -1,6 +1,9 @@
 import { SvgIconComponent } from "@mui/icons-material";
 import { createTheme, ThemeProvider, Button } from "@mui/material";
 import styles from '@/components/skillbutton.module.css';
+import { Inter } from 'next/font/google';
+
+const inter = Inter({ subsets: ['latin'], weight: ['500', '600'] })
 
 const theme = createTheme({
     palette: {
@@ -25,7 +28,7 @@ export default function SkillButton({ children, onClick, Icon }: { children: str
     return <ThemeProvider theme={theme} key={children}>
         <Button onClick={onClick} key={`button-${children}`}>
             <div className={styles.skillButtonContents}>
-                { Icon ? <Icon className={styles.skillButtonIcon} /> : null }
+                { Icon ? <Icon className={[styles.skillButtonIcon, inter.className].join(' ')} /> : null }
                 {children}
             </div>
         </Button>
