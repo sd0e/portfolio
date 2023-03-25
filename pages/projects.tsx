@@ -7,7 +7,7 @@ import { GetStaticProps } from 'next/types';
 
 const inter = Inter({ subsets: ['latin'], weight: ['600', '700'] })
 
-export default function Projects({ projects }: { projects: {
+export default function Projects({ projects }: { projects: Array<{
   id: string,
   name: string,
   languages: Array<string>,
@@ -15,7 +15,7 @@ export default function Projects({ projects }: { projects: {
   year: number,
   link: string,
   priority: number
-}}) {
+}>}) {
   const router = useRouter();
   const pathname = router.pathname;
 
@@ -25,7 +25,11 @@ export default function Projects({ projects }: { projects: {
         <meta name="viewport" content="width=device-width, initial-scale=1" />
         <link rel="icon" href="/favicon.ico" />
       </Head>
-      main content
+      {projects.map(project => {
+        return <div key={project.id}>
+          <span>{project.name}</span>
+        </div>
+      })}
     </Layout>
   )
 }
