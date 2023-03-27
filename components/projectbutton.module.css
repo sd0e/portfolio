@@ -1,10 +1,10 @@
 .container {
+    display: block;
     width: 100%;
 }
 
 .buttonInner {
     padding: 1rem 1.25rem;
-    border-radius: 0.5rem;
     display: flex;
     flex-grow: 1;
 }

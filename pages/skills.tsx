@@ -66,9 +66,9 @@ export default function Skills() {
         <link rel="icon" href="/favicon.ico" />
       </Head>
       <Boxy columns={3} items={skills}>
-        {(props) => {
-          const relativeDate = parseDate(props.monthsSince2000);
-          return <SkillBox Title={props.title} Description={relativeDate} key={props.title} />
+        {(skill) => {
+          const relativeDate = parseDate(skill.monthsSince2000);
+          return <SkillBox Title={skill.title} Description={relativeDate} key={skill.title} />
         }}
       </Boxy>
     </Layout>

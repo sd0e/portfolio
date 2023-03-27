@@ -15,7 +15,9 @@ export default function ProjectButton({ id, name, date, languages }: { id: strin
                 styleOverrides: {
                     root: {
                         border: '1px solid rgba(242, 242, 242, 0.2)',
+                        borderRadius: '0.5rem',
                         textTransform: 'none',
+                        width: '100%',
                     }
                 }
             }
