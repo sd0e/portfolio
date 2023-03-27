@@ -3,7 +3,7 @@ import { Inter } from 'next/font/google';
 import Layout from '@/components/layout';
 import { useRouter } from 'next/router';
 import SkillBox from '@/components/skillbox';
-import { Stack } from '@mui/material';
+import Boxy from '@/components/boxy';
 import { useEffect, useState } from 'react';
 
 const inter = Inter({ subsets: ['latin'], weight: ['600', '700'] })
@@ -11,15 +11,6 @@ const inter = Inter({ subsets: ['latin'], weight: ['600', '700'] })
 export default function Skills() {
   const router = useRouter();
   const pathname = router.pathname;
-
-  const [windowWidth, setWindowWidth] = useState(1000);
-
-  useEffect(() => {
-    if (typeof window !== 'undefined') {
-      setWindowWidth(window.innerWidth);
-      window.addEventListener('resize', () => setWindowWidth(window.innerWidth));
-    }
-  }, []);
 
   const skills = [
     {
@@ -68,35 +59,18 @@ export default function Skills() {
     else return `this month`;
   }
 
-  let columnNumber = Math.ceil(windowWidth / 650);
-  if (columnNumber > 3) columnNumber = 3;
-  let columns = new Array(columnNumber);
-
-  let currColNum = 0;
-  for (let idx = 0; idx < skills.length; idx++) {
-    if (idx < columnNumber) columns[currColNum] = [];
-    columns[currColNum].push(skills[idx]);
-
-    if (currColNum === columnNumber - 1) currColNum = 0
-    else currColNum++;
-  }
-
   return (
     <Layout mainPage title="Skills" description="Some languages and frameworks I have used" image={`/assets/SVG${pathname}.svg`} prev="/about" next="/projects">
       <Head>
         <meta name="viewport" content="width=device-width, initial-scale=1" />
         <link rel="icon" href="/favicon.ico" />
       </Head>
-      <Stack direction="row" spacing={4}>
-        {columns.map((column: [{ title: string, monthsSince2000: number }], idx) => {
-          return <Stack direction="column" spacing={4} flexGrow={1} key={`column${idx}`}>
-            {column.map(columnInfo => {
-              const relativeDate = parseDate(columnInfo.monthsSince2000);
-              return <SkillBox Title={columnInfo.title} Description={relativeDate} key={columnInfo.title} />
-            })}
-          </Stack>
-        })}
-      </Stack>
+      <Boxy columns={3} items={skills}>
+        {(props) => {
+          const relativeDate = parseDate(props.monthsSince2000);
+          return <SkillBox Title={props.title} Description={relativeDate} key={props.title} />
+        }}
+      </Boxy>
     </Layout>
   )
 }
