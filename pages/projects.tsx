@@ -4,6 +4,7 @@ import Layout from '@/components/layout';
 import { useRouter } from 'next/router';
 import { getSortedProjects } from '@/lib/projects';
 import { GetStaticProps } from 'next/types';
+import ProjectButton from '@/components/projectbutton';
 
 const inter = Inter({ subsets: ['latin'], weight: ['600', '700'] })
 
@@ -27,7 +28,12 @@ export default function Projects({ projects }: { projects: Array<{
       </Head>
       {projects.map(project => {
         return <div key={project.id}>
-          <span>{project.name}</span>
+          <ProjectButton
+            id={project.id}
+            name={project.name}
+            date={`${project.month} ${project.year}`}
+            languages={project.languages}
+          />
         </div>
       })}
     </Layout>

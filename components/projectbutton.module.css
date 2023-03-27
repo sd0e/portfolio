@@ -1,0 +1,15 @@
+.container {
+    width: 100%;
+}
+
+.buttonInner {
+    padding: 1rem 1.25rem;
+    border-radius: 0.5rem;
+    display: flex;
+    flex-grow: 1;
+}
+
+.projectName {
+    font-size: 1.2rem;
+    color: rgba(242, 242, 242, 1);
+}
