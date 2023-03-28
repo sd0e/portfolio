@@ -23,7 +23,7 @@ export default function Project({ projectInfo }: { projectInfo: {
         <meta name="viewport" content="width=device-width, initial-scale=1" />
         <link rel="icon" href="/favicon.ico" />
       </Head>
-      <ProjectInfo Skills={projectInfo.languages} URL={projectInfo.link} Time={`${projectInfo.month} ${projectInfo.year.toString()}`} />
+      <ProjectInfo Skills={projectInfo.languages} URL={projectInfo.link} Time={`${projectInfo.month} ${projectInfo.year.toString()}`} Year={projectInfo.year} />
       <div dangerouslySetInnerHTML={{ __html: projectInfo.contentAsHtml }} className={inter.className} />
     </Layout>
   )

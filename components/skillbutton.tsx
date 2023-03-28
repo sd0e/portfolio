@@ -24,9 +24,9 @@ const theme = createTheme({
     }
 });
 
-export default function SkillButton({ children, onClick, Icon }: { children: string, onClick?: () => void, Icon?: SvgIconComponent }) {
+export default function SkillButton({ children, onClick, Icon, id }: { children: string, onClick?: (e: React.MouseEvent<HTMLButtonElement>) => void, Icon?: SvgIconComponent, id?: string }) {
     return <ThemeProvider theme={theme} key={children}>
-        <Button onClick={onClick} key={`button-${children}`}>
+        <Button onClick={onClick} key={`button-${children}`} aria-describedby={id}>
             <div className={styles.skillButtonContents}>
                 { Icon ? <Icon className={[styles.skillButtonIcon, inter.className].join(' ')} /> : null }
                 {children}
