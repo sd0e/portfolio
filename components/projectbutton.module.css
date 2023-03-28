@@ -4,12 +4,21 @@
 }
 
 .buttonInner {
-    padding: 1rem 1.25rem;
+    padding: 0.75rem 1rem;
     display: flex;
     flex-grow: 1;
+    flex-direction: column;
+    align-items: flex-start;
 }
 
 .projectName {
+    display: block;
     font-size: 1.2rem;
     color: rgba(242, 242, 242, 1);
+}
+
+.projectDate {
+    display: block;
+    font-size: 0.9rem;
+    color: rgba(242, 242, 242, 0.8);
 }

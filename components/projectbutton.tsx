@@ -31,6 +31,7 @@ export default function ProjectButton({ id, name, date, languages }: { id: strin
                     <Button aria-label={`View the project ${name}`}>
                         <div className={styles.buttonInner}>
                             <span className={[styles.projectName, inter.className].join(' ')}>{name}</span>
+                            <span className={[styles.projectDate, inter.className].join(' ')}>{date}</span>
                         </div>
                     </Button>
                 </ThemeProvider>
