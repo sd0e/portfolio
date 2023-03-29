@@ -31,7 +31,6 @@ export default function Project({ projectInfo }: { projectInfo: {
 
 export const getStaticPaths: GetStaticPaths = async () => {
     const paths = getAllProjectIds();
-    console.log(paths);
     return {
         paths,
         fallback: false
