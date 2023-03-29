@@ -5,6 +5,7 @@ import { Inter } from 'next/font/google';
 import { motion } from 'framer-motion';
 import React from 'react';
 import { useRouter } from 'next/router';
+import { createTheme, LinearProgress, ThemeProvider } from '@mui/material';
 
 export const siteName = 'Seb Doe';
 export const siteDescription = 'Software Engineer';
@@ -13,7 +14,7 @@ export const siteDescription = 'Software Engineer';
 
 const inter = Inter({ subsets: ['latin'], weight: ['600', '700'] });
 
-export default function Layout({ children, mainPage = false, headerOnly = false, scrollNav = true, title, description, image, prev, next, onMouseMove }: { children: React.ReactNode, mainPage?: boolean, headerOnly?: boolean, scrollNav?: boolean, title?: string, description?: string, image?: string, prev?: string, next?: string, onMouseMove?: (e: React.MouseEvent<HTMLDivElement, MouseEvent>) => void }) {
+export default function Layout({ children, mainPage = false, headerOnly = false, scrollNav = true, title, description, image, prev, next, onMouseMove, pageIdx }: { children: React.ReactNode, mainPage?: boolean, headerOnly?: boolean, scrollNav?: boolean, title?: string, description?: string, image?: string, prev?: string, next?: string, onMouseMove?: (e: React.MouseEvent<HTMLDivElement, MouseEvent>) => void, pageIdx?: number }) {
     const gradientImage = image || '@/assets/SVG/index.svg';
     const router = useRouter();
 
@@ -55,6 +56,24 @@ export default function Layout({ children, mainPage = false, headerOnly = false,
         router.push(prev);
     }
 
+    const theme = createTheme({
+        palette: {
+            mode: 'dark',
+        },
+        components: {
+            MuiLinearProgress: {
+                styleOverrides: {
+                    bar: {
+                        backgroundColor: 'rgba(242, 242, 242, 0.2)'
+                    },
+                    root: {
+                        backgroundColor: 'rgba(242, 242, 242, 0.1)'
+                    }
+                }
+            }
+        }
+    });
+
     return (
         <div
             className={styles.wrapper}
@@ -78,6 +97,13 @@ export default function Layout({ children, mainPage = false, headerOnly = false,
             }}
             onMouseMove={onMouseMove}
         >
+            { mainPage ? <ThemeProvider theme={theme}>
+                <LinearProgress
+                    variant="determinate"
+                    value={(pageIdx || 0) / 4 * 100}
+                    className={styles.progressBar}
+                />
+            </ThemeProvider> : null }
             <motion.div
                 className={styles.container}
                 variants={variants}
