@@ -54,7 +54,9 @@ export default function Projects({ projects }: { projects: Array<{
     if (item) setDateVal(item);
   }, []);
 
-  console.log(dateVal);
+  const displayProjects = projects.filter(project => {
+    return project.year === date || !date
+  });
 
   const updateDateVal = (newDateVal?: number | null) => {
     if (newDateVal === undefined) newDateVal = date;
@@ -98,7 +100,7 @@ export default function Projects({ projects }: { projects: Array<{
       <Popover
         id={dateId}
         open={dateOpen}
-        anchorEl={skillsAnchorEl}
+        anchorEl={anchorEl}
         onClose={() => toggleDateOpen()}
         anchorOrigin={{
           vertical: 'bottom',
@@ -131,7 +133,7 @@ export default function Projects({ projects }: { projects: Array<{
       <Popover
         id={skillsId}
         open={skillsOpen}
-        anchorEl={anchorEl}
+        anchorEl={skillsAnchorEl}
         onClose={() => setSkillsOpen(false)}
         anchorOrigin={{
           vertical: 'bottom',
@@ -142,7 +144,7 @@ export default function Projects({ projects }: { projects: Array<{
           <span>skills picker</span>
         </OverlayContent>
       </Popover>
-      <Boxy columns={2} items={projects}>
+      <Boxy columns={2} items={displayProjects}>
         {(project) => {
           return <ProjectButton
             id={project.id}
