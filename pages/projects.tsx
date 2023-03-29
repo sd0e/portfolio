@@ -62,22 +62,16 @@ skills: Array<string>}) {
   });
 
   useEffect(() => {
-    let item = getItem('date');
-    if (item) setDateVal(item);
+    const item = getItem('date');
+    console.log(item);
+    if (item) {
+      setDateVal(item);
+      setDate(Number(item));
+    };
 
-    item = getItem('skills');
-    if (item) setSkillsVal(item);
+    const skillItem = getItem('skills');
+    if (skillItem) setSkillsVal(skillItem);
   }, []);
-
-  const displayProjects = projects.filter(project => {
-    return (
-      (!date || project.year === date)
-      &&
-      (!skillsVal || project.languages.includes(skillsVal))
-      &&
-      (!searchValue || project.name.toLowerCase().includes(searchValue.toLowerCase()))
-    )
-  });
 
   const updateDateVal = (newDateVal?: number | null) => {
     if (newDateVal === undefined) newDateVal = date;
@@ -195,7 +189,15 @@ skills: Array<string>}) {
             </>
           </OverlayContent>
         </Popover>
-        <Boxy columns={2} items={displayProjects}>
+        <Boxy columns={2} items={projects.filter(project => {
+          return (
+            (!date || project.year === date)
+            &&
+            (!skillsVal || project.languages.includes(skillsVal))
+            &&
+            (!searchValue || project.name.toLowerCase().includes(searchValue.toLowerCase()))
+          )
+        })}>
           {(project) => {
             return <ProjectButton
               id={project.id}
