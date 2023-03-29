@@ -16,7 +16,7 @@ export default function ProjectInfo({ Skills, URL, Time, Year }: { Skills: strin
 		<div className={styles.container}>
 			<div>
                 <Stack direction="column" spacing={5}>
-                    <Stack direction="row" spacing={2}>
+                    <Stack direction="row" spacing={0} sx={{ flexWrap: 'wrap', gap: 2 }}>
                         {Skills.map(skill => {
                             return <SkillButton key={skill} onClick={() => {
                                 setItem('skills', skill);
@@ -25,7 +25,7 @@ export default function ProjectInfo({ Skills, URL, Time, Year }: { Skills: strin
                             }}>{skill}</SkillButton>
                         })}
                     </Stack>
-                    <Stack direction="row" spacing={2}>
+                    <Stack direction="row" spacing={0} sx={{ flexWrap: 'wrap', gap: 2 }}>
                             <SkillButton Icon={CalendarMonthOutlined} onClick={() => {
                                 setItem('date', Year.toString());
                                 setItem('skills', '');

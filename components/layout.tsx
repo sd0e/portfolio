@@ -44,13 +44,13 @@ export default function Layout({ children, mainPage = false, headerOnly = false,
     }
 
     const moveNext = (): void => {
-        if (!next || !scrollNav) return;
+        if (!next || !scrollNav || window.scrollY < document.documentElement.scrollHeight - document.documentElement.clientHeight) return;
         (window as any).next = true;
         router.push(next);
     }
 
     const movePrev = (): void => {
-        if (!prev || !scrollNav) return;
+        if (!prev || !scrollNav || window.scrollY) return;
         (window as any).next = false;
         router.push(prev);
     }

@@ -63,7 +63,6 @@ skills: Array<string>}) {
 
   useEffect(() => {
     const item = getItem('date');
-    console.log(item);
     if (item) {
       setDateVal(item);
       setDate(Number(item));
@@ -95,7 +94,7 @@ skills: Array<string>}) {
           <meta name="viewport" content="width=device-width, initial-scale=1" />
           <link rel="icon" href="/favicon.ico" />
         </Head>
-        <Stack direction="row" spacing={0} style={{ marginBottom: '3rem' }} sx={{ flexWrap: 'wrap', gap: 2 }}>
+        <Stack direction="row" spacing={0} sx={{ flexWrap: 'wrap', gap: 2 }} style={{ marginBottom: '3rem' }}>
           <SkillButton Icon={CalendarMonthOutlined} id={dateId} onClick={e => {
             setAnchorEl(e.currentTarget);
             if (!date) {
