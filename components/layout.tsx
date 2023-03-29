@@ -58,6 +58,25 @@ export default function Layout({ children, mainPage = false, headerOnly = false,
     return (
         <div
             className={styles.wrapper}
+            onWheel={e => {
+                if (!scrollNav) return;
+                if (e.deltaY > 0 && next) {
+                    moveNext();
+                } else if (e.deltaY < 0 && prev) {
+                    movePrev();
+                }
+            }}
+            onTouchStart={e => prevY = e.nativeEvent.touches[0].clientY}
+            onTouchEnd={e => {
+                if (!scrollNav) return;
+                const deltaYSwipe = e.changedTouches[0].clientY - prevY;
+                if (deltaYSwipe < 0 && next) {
+                    moveNext();
+                } else if (deltaYSwipe > 0 && prev) {
+                    movePrev();
+                }
+            }}
+            onMouseMove={onMouseMove}
         >
             <motion.div
                 className={styles.container}
@@ -66,25 +85,6 @@ export default function Layout({ children, mainPage = false, headerOnly = false,
                 animate="enter"
                 exit="exit"
                 transition={{ type: 'ease-in-out', duration: 0.25 }}
-                onWheel={e => {
-                    if (!scrollNav) return;
-                    if (e.deltaY > 0 && next) {
-                        moveNext();
-                    } else if (e.deltaY < 0 && prev) {
-                        movePrev();
-                    }
-                }}
-                onTouchStart={e => prevY = e.nativeEvent.touches[0].clientY}
-                onTouchEnd={e => {
-                    if (!scrollNav) return;
-                    const deltaYSwipe = e.changedTouches[0].clientY - prevY;
-                    if (deltaYSwipe < 0 && next) {
-                        moveNext();
-                    } else if (deltaYSwipe > 0 && prev) {
-                        movePrev();
-                    }
-                }}
-                onMouseMove={onMouseMove}
             >
                 <Head>
                     <title>{title ? `${title} - ${siteName}` : siteName}</title>
