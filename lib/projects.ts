@@ -4,6 +4,10 @@ import matter from 'gray-matter'
 import { remark } from 'remark'
 import html from 'remark-html'
 
+interface Dictionary<T> {
+    [key: string]: T;
+}
+
 const projectsDirectory = path.join(process.cwd(), 'projects');
 
 export function getSortedProjects() {
@@ -43,6 +47,31 @@ export function getAllProjectIds() {
             }
         }
     })
+}
+
+function getProjectAttribute(id: string, attribute: string) {
+    const projectPath = path.join(projectsDirectory, `${id}.md`);
+    const fileContents = fs.readFileSync(projectPath, 'utf8');
+
+    const matterRes = matter(fileContents);
+    return matterRes.data[attribute];
+}
+
+export async function getAllSkills() {
+    const projectIds = getAllProjectIds();
+
+    let skillObjects: Dictionary<number> = {};
+
+    projectIds.forEach(projectIdParams => {
+        const skills: string[] = getProjectAttribute(projectIdParams.params.id, 'languages');
+        console.log(skills);
+
+        skills.forEach(skill => {
+            skillObjects[skill] = 1;
+        })
+    });
+
+    return Object.keys(skillObjects);
 }
 
 export async function getProjectData(id: string) {
