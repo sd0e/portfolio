@@ -1,7 +1,7 @@
 ---
 name: 'LiveTransit Cameras'
 languages: ['React', 'JavaScript', 'C#']
-month: 'Jan'
+month: 'Feb'
 year: 2023
 link: 'http://cameras.sebdoe.com/'
 priority: 2
