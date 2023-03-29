@@ -29,7 +29,7 @@ export default function SkillButton({ children, onClick, Icon, id }: { children:
     return <ThemeProvider theme={theme} key={children}>
         <Button onClick={onClick} key={`button-${children}`} aria-describedby={id}>
             <div className={styles.skillButtonContents}>
-                { Icon ? <Icon className={[styles.skillButtonIcon, inter.className].join(' ')} /> : null }
+                { Icon ? <Icon className={[styles.skillButtonIcon, inter.className].join(' ')} fontSize="small" /> : null }
                 <span className={styles.skillButtonText}>{children}</span>
             </div>
         </Button>
