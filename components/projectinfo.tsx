@@ -18,12 +18,17 @@ export default function ProjectInfo({ Skills, URL, Time, Year }: { Skills: strin
                 <Stack direction="column" spacing={5}>
                     <Stack direction="row" spacing={2}>
                         {Skills.map(skill => {
-                            return <SkillButton key={skill}>{skill}</SkillButton>
+                            return <SkillButton key={skill} onClick={() => {
+                                setItem('skills', skill);
+                                setItem('date', '');
+                                router.push('/projects'); 
+                            }}>{skill}</SkillButton>
                         })}
                     </Stack>
                     <Stack direction="row" spacing={2}>
                             <SkillButton Icon={CalendarMonthOutlined} onClick={() => {
                                 setItem('date', Year.toString());
+                                setItem('skills', '');
                                 router.push('/projects');
                             }}>{Time}</SkillButton>
                         <a href={URL} target="_blank" rel="noreferrer">
