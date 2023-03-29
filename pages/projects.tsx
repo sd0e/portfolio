@@ -10,7 +10,7 @@ import { Stack, Popover, IconButton, createTheme, ThemeProvider } from '@mui/mat
 import SkillButton from '@/components/skillbutton';
 import { AddCircleOutlineOutlined, ArrowDropDownCircleOutlined, CalendarMonthOutlined, ClearAllOutlined, RemoveCircleOutlineOutlined } from '@mui/icons-material';
 import RoundSearch from '@/components/roundsearch';
-import { useRef, useState } from 'react';
+import { useEffect, useRef, useState } from 'react';
 import OverlayContent from '@/components/overlaycontent';
 import useStorage from '@/hooks/useStorage';
 
@@ -37,6 +37,7 @@ export default function Projects({ projects }: { projects: Array<{
   const [anchorEl, setAnchorEl] = useState<HTMLButtonElement | null>(null);
   const [skillsAnchorEl, setSkillsAnchorEl] = useState<HTMLButtonElement | null>(null);
   const [dateOpen, setDateOpen] = useState(false);
+  const [dateVal, setDateVal] = useState('Choose Year');
   const [skillsOpen, setSkillsOpen] = useState(false);
   const [date, setDate] = useState<number | null>(null);
   const dateId = dateOpen ? 'date-popover' : undefined;
@@ -47,6 +48,23 @@ export default function Projects({ projects }: { projects: Array<{
       mode: 'dark'
     }
   });
+
+  useEffect(() => {
+    const item = getItem('date');
+    if (item) setDateVal(item);
+  }, []);
+
+  console.log(dateVal);
+
+  const updateDateVal = (newDateVal?: number | null) => {
+    if (newDateVal === undefined) newDateVal = date;
+    setDateVal(newDateVal ? newDateVal.toString() : 'Choose Year')
+  };
+
+  const toggleDateOpen = (newDateVal?: number | null) => {
+    if (dateOpen) updateDateVal(newDateVal);
+    setDateOpen(val => !val);
+  }
 
   const updateDate = (newDate: number) => {
     setDate(newDate);
@@ -62,14 +80,14 @@ export default function Projects({ projects }: { projects: Array<{
       <Stack direction="row" spacing={2} style={{ marginBottom: '3rem' }}>
         <SkillButton Icon={CalendarMonthOutlined} id={dateId} onClick={e => {
           setAnchorEl(e.currentTarget);
-          setDateOpen(value => !value);
           if (!date) {
             if (!getItem('date')) setItem('date', new Date().getFullYear().toString())
             const fetchedDate = getItem('date');
             setDate(Number(fetchedDate));
           }
+          toggleDateOpen();
         }}>{
-          date?.toString() || `Choose Year`
+          dateVal
         }</SkillButton>
         <SkillButton Icon={ArrowDropDownCircleOutlined} id={skillsId} onClick={e => {
           setSkillsAnchorEl(e.currentTarget);
@@ -81,7 +99,7 @@ export default function Projects({ projects }: { projects: Array<{
         id={dateId}
         open={dateOpen}
         anchorEl={skillsAnchorEl}
-        onClose={() => setDateOpen(false)}
+        onClose={() => toggleDateOpen()}
         anchorOrigin={{
           vertical: 'bottom',
           horizontal: 'left'
@@ -103,7 +121,7 @@ export default function Projects({ projects }: { projects: Array<{
             <IconButton color="warning" onClick={() => {
               setDate(null);
               setItem('date', '');
-              setDateOpen(false);
+              toggleDateOpen(null);
             }}>
               <ClearAllOutlined />
             </IconButton>

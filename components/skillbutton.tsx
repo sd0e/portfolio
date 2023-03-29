@@ -18,6 +18,7 @@ const theme = createTheme({
                     border: '2px solid rgba(242, 242, 242, 0.2)',
                     color: 'rgba(242, 242, 242, 0.8)',
                     padding: '0.25rem 0.75rem',
+                    minWidth: 'max-content'
                 }
             }
         }
@@ -29,7 +30,7 @@ export default function SkillButton({ children, onClick, Icon, id }: { children:
         <Button onClick={onClick} key={`button-${children}`} aria-describedby={id}>
             <div className={styles.skillButtonContents}>
                 { Icon ? <Icon className={[styles.skillButtonIcon, inter.className].join(' ')} /> : null }
-                {children}
+                <span className={styles.skillButtonText}>{children}</span>
             </div>
         </Button>
     </ThemeProvider>

@@ -2,9 +2,15 @@
     display: flex;
     justify-content: center;
     align-items: center;
+    min-width: max-content;
 }
 
 .skillButtonIcon {
     width: 1rem;
     margin-right: 0.5rem;
+}
+
+.skillButtonText {
+    display: block;
+    min-width: max-content;
 }
