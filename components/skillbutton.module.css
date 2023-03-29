@@ -6,7 +6,7 @@
 }
 
 .skillButtonIcon {
-    width: 1rem;
+    width: 1rem !important;
     margin-right: 0.5rem;
 }
 
