@@ -95,30 +95,30 @@ skills: Array<string>}) {
   }
 
   return (
-    <Layout mainPage title="Projects" description="Some of my notable projects" image={`/assets/SVG${pathname}.svg`} prev="/skills">
-      <Head>
-        <meta name="viewport" content="width=device-width, initial-scale=1" />
-        <link rel="icon" href="/favicon.ico" />
-      </Head>
-      <Stack direction="row" spacing={2} style={{ marginBottom: '3rem' }}>
-        <SkillButton Icon={CalendarMonthOutlined} id={dateId} onClick={e => {
-          setAnchorEl(e.currentTarget);
-          if (!date) {
-            if (!getItem('date')) setItem('date', new Date().getFullYear().toString())
-            const fetchedDate = getItem('date');
-            setDate(Number(fetchedDate));
-          }
-          toggleDateOpen();
-        }}>{
-          dateVal
-        }</SkillButton>
-        <SkillButton Icon={ArrowDropDownCircleOutlined} id={skillsId} onClick={e => {
-          setSkillsAnchorEl(e.currentTarget);
-          setSkillsOpen(value => !value);
-        }}>{skillsVal || `Skills`}</SkillButton>
-        <RoundSearch placeholder="Search" setState={setSearchValue} />
-      </Stack>
-      <ThemeProvider theme={theme}>
+    <ThemeProvider theme={theme}>
+      <Layout mainPage title="Projects" description="Some of my notable projects" image={`/assets/SVG${pathname}.svg`} prev="/skills">
+        <Head>
+          <meta name="viewport" content="width=device-width, initial-scale=1" />
+          <link rel="icon" href="/favicon.ico" />
+        </Head>
+        <Stack direction="row" spacing={0} style={{ marginBottom: '3rem' }} sx={{ flexWrap: 'wrap', gap: 2 }}>
+          <SkillButton Icon={CalendarMonthOutlined} id={dateId} onClick={e => {
+            setAnchorEl(e.currentTarget);
+            if (!date) {
+              if (!getItem('date')) setItem('date', new Date().getFullYear().toString())
+              const fetchedDate = getItem('date');
+              setDate(Number(fetchedDate));
+            }
+            toggleDateOpen();
+          }}>{
+            dateVal
+          }</SkillButton>
+          <SkillButton Icon={ArrowDropDownCircleOutlined} id={skillsId} onClick={e => {
+            setSkillsAnchorEl(e.currentTarget);
+            setSkillsOpen(value => !value);
+          }}>{skillsVal || `Skills`}</SkillButton>
+          <RoundSearch placeholder="Search" setState={setSearchValue} />
+        </Stack>
         <Popover
           id={dateId}
           open={dateOpen}
@@ -195,19 +195,19 @@ skills: Array<string>}) {
             </>
           </OverlayContent>
         </Popover>
-      </ThemeProvider>
-      <Boxy columns={2} items={displayProjects}>
-        {(project) => {
-          return <ProjectButton
-            id={project.id}
-            name={project.name}
-            date={`${project.month} ${project.year}`}
-            languages={project.languages}
-            key={project.id}
-          />
-        }}
-      </Boxy>
-    </Layout>
+        <Boxy columns={2} items={displayProjects}>
+          {(project) => {
+            return <ProjectButton
+              id={project.id}
+              name={project.name}
+              date={`${project.month} ${project.year}`}
+              languages={project.languages}
+              key={project.id}
+            />
+          }}
+        </Boxy>
+      </Layout>
+    </ThemeProvider>
   )
 }
 
