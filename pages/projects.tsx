@@ -73,6 +73,8 @@ skills: Array<string>}) {
     return (
       (!date || project.year === date)
       &&
+      (!skillsVal || project.languages.includes(skillsVal))
+      &&
       (!searchValue || project.name.toLowerCase().includes(searchValue.toLowerCase()))
     )
   });
