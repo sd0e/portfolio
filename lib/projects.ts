@@ -64,7 +64,6 @@ export async function getAllSkills() {
 
     projectIds.forEach(projectIdParams => {
         const skills: string[] = getProjectAttribute(projectIdParams.params.id, 'languages');
-        console.log(skills);
 
         skills.forEach(skill => {
             skillObjects[skill] = 1;
