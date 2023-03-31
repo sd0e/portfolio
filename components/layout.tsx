@@ -120,7 +120,7 @@ export default function Layout({ children, mainPage = false, headerOnly = false,
                     <meta name="twitter:card" content="summary_large_image" />
                 </Head>
                 {mainPage || headerOnly ? <>
-                    <Image
+                    { gradientImage ? <Image
                         priority
                         src={gradientImage}
                         className={styles.mainPageImage}
@@ -128,7 +128,7 @@ export default function Layout({ children, mainPage = false, headerOnly = false,
                         width={250}
                         alt="Colourful Gradient"
                         draggable={false}
-                    />
+                    /> : null }
                     <div className={styles.mainPageHeader}>
                         <motion.span
                             variants={enterVariants}
