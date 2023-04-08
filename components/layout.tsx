@@ -45,7 +45,7 @@ export default function Layout({ children, mainPage = false, headerOnly = false,
     }
 
     const moveNext = (): void => {
-        if (!next || !scrollNav || window.scrollY < document.documentElement.scrollHeight - document.documentElement.clientHeight) return;
+        if (!next || !scrollNav || window.scrollY < document.documentElement.scrollHeight - (window as any).visualViewport.height) return;
         (window as any).next = true;
         router.push(next);
     }
