@@ -45,13 +45,13 @@ export default function Layout({ children, mainPage = false, headerOnly = false,
     }
 
     const moveNext = (): void => {
-        if (!next || !scrollNav || window.scrollY < document.documentElement.scrollHeight - (window as any).visualViewport.height) return;
+        if (!next || !scrollNav || (document as any).getElementById('wrapper').scrollTop < (document as any).getElementById('wrapper').scrollHeight - (window as any).visualViewport.height) return;
         (window as any).next = true;
         router.push(next);
     }
 
     const movePrev = (): void => {
-        if (!prev || !scrollNav || window.scrollY) return;
+        if (!prev || !scrollNav || (document as any).getElementById('wrapper').scrollTop !== 0) return;
         (window as any).next = false;
         router.push(prev);
     }
@@ -77,6 +77,7 @@ export default function Layout({ children, mainPage = false, headerOnly = false,
     return (
         <div
             className={styles.wrapper}
+            id="wrapper"
             onWheel={e => {
                 if (!scrollNav) return;
                 if (e.deltaY > 0 && next) {
