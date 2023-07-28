@@ -139,7 +139,7 @@ export default function Layout({ children, mainPage = false, headerOnly = false,
                                 <span className={styles.mainPageTitleText}>{title}</span>
                             </motion.span>
                         </div>
-                        {mainPage ? <motion.span
+                        {description ? <motion.span
                             variants={enterVariants}
                             initial="hidden"
                             animate="enter"
@@ -151,7 +151,7 @@ export default function Layout({ children, mainPage = false, headerOnly = false,
                     </div>
                 </> : null}
                 <motion.main
-                    style={{ height: mainPage ? 'auto' : '100%', position: mainPage || headerOnly ? 'relative' : 'initial' }}
+                    style={{ height: 'auto', position: mainPage || headerOnly ? 'relative' : 'initial' }}
                     variants={enterVariants}
                     initial="hidden"
                     animate="enter"

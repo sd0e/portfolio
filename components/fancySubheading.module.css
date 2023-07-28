@@ -1,0 +1,18 @@
+.subheading {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.subheadingText {
+    font-weight: 600;
+}
+
+.subheadingDivider {
+    display: block;
+    width: 100%;
+    height: 0.125rem;
+    background-color: rgba(242, 242, 242, 0.2);
+    margin-left: 1.5rem;
+}

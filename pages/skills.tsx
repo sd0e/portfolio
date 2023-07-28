@@ -4,7 +4,10 @@ import Layout from '@/components/layout';
 import { useRouter } from 'next/router';
 import SkillBox from '@/components/skillbox';
 import Boxy from '@/components/boxy';
-import { useEffect, useState } from 'react';
+import { Stack } from '@mui/material';
+import Link from 'next/link';
+import SkillButton from '@/components/skillbutton';
+import { SchoolOutlined } from '@mui/icons-material';
 
 const inter = Inter({ subsets: ['latin'], weight: ['600', '700'] })
 
@@ -65,6 +68,11 @@ export default function Skills() {
         <meta name="viewport" content="width=device-width, initial-scale=1" />
         <link rel="icon" href="/favicon.ico" />
       </Head>
+      <Stack direction="row" spacing={0} sx={{ flexWrap: 'wrap', gap: 2 }} style={{ marginBottom: '3rem' }}>
+        <Link href="/qualifications">
+          <SkillButton Icon={SchoolOutlined}>Qualifications</SkillButton>
+        </Link>
+      </Stack>
       <Boxy columns={3} items={skills}>
         {(skill) => {
           const relativeDate = parseDate(skill.monthsSince2000);
