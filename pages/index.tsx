@@ -31,7 +31,7 @@ export default function Home() {
   }
 
   return (
-    <Layout next="/about" onMouseMove={onMouseMove}>
+    <Layout next="/about" onMouseMove={onMouseMove} fullHeight>
       <Head>
         <meta name="viewport" content="width=device-width, initial-scale=1" />
         <link rel="icon" href="/favicon.ico" />

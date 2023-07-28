@@ -15,7 +15,7 @@ export const siteDescription = 'Software Engineer';
 
 const inter = Inter({ subsets: ['latin'], weight: ['600', '700'] });
 
-export default function Layout({ children, mainPage = false, headerOnly = false, scrollNav = true, title, description, image, prev, next, onMouseMove, pageIdx }: { children: React.ReactNode, mainPage?: boolean, headerOnly?: boolean, scrollNav?: boolean, title?: string, description?: string, image?: string, prev?: string, next?: string, onMouseMove?: (e: React.MouseEvent<HTMLDivElement, MouseEvent>) => void, pageIdx?: number }) {
+export default function Layout({ children, mainPage = false, headerOnly = false, scrollNav = true, title, description, image, prev, next, onMouseMove, pageIdx, fullHeight = false }: { children: React.ReactNode, mainPage?: boolean, headerOnly?: boolean, scrollNav?: boolean, title?: string, description?: string, image?: string, prev?: string, next?: string, onMouseMove?: (e: React.MouseEvent<HTMLDivElement, MouseEvent>) => void, pageIdx?: number, fullHeight?: boolean }) {
     const gradientImage = image || '@/assets/SVG/index.svg';
     const router = useRouter();
 
@@ -151,7 +151,7 @@ export default function Layout({ children, mainPage = false, headerOnly = false,
                     </div>
                 </> : null}
                 <motion.main
-                    style={{ height: 'auto', position: mainPage || headerOnly ? 'relative' : 'initial' }}
+                    style={{ height: fullHeight ? '100%' : 'auto', position: mainPage || headerOnly ? 'relative' : 'initial' }}
                     variants={enterVariants}
                     initial="hidden"
                     animate="enter"
