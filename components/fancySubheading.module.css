@@ -3,10 +3,13 @@
     flex-direction: row;
     justify-content: space-between;
     align-items: center;
+    margin-bottom: 1.5rem;
+    margin-top: 3rem;
 }
 
 .subheadingText {
     font-weight: 600;
+    white-space: nowrap;
 }
 
 .subheadingDivider {
