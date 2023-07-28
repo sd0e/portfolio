@@ -6,6 +6,7 @@ import { motion } from 'framer-motion';
 import React from 'react';
 import { useRouter } from 'next/router';
 import { createTheme, LinearProgress, ThemeProvider } from '@mui/material';
+import ProgressDots from './progressDots';
 
 export const siteName = 'Seb Doe';
 export const siteDescription = 'Software Engineer';
@@ -98,13 +99,6 @@ export default function Layout({ children, mainPage = false, headerOnly = false,
             }}
             onMouseMove={onMouseMove}
         >
-            { mainPage ? <ThemeProvider theme={theme}>
-                <LinearProgress
-                    variant="determinate"
-                    value={(pageIdx || 0) / 4 * 100}
-                    className={styles.progressBar}
-                />
-            </ThemeProvider> : null }
             <motion.div
                 className={styles.container}
                 variants={variants}
@@ -131,15 +125,20 @@ export default function Layout({ children, mainPage = false, headerOnly = false,
                         draggable={false}
                     /> : null }
                     <div className={styles.mainPageHeader}>
-                        <motion.span
-                            variants={enterVariants}
-                            initial="hidden"
-                            animate="enter"
-                            transition={{ type: 'ease-in-out', duration: 0.25, delay: 0.15 }}
-                            className={[inter.className, styles.mainPageTitle].join(' ')}
-                        >
-                            {title}
-                        </motion.span>
+                        <div>
+                            <motion.span
+                                variants={enterVariants}
+                                initial="hidden"
+                                animate="enter"
+                                transition={{ type: 'ease-in-out', duration: 0.25, delay: 0.15 }}
+                                className={[inter.className, styles.mainPageTitle].join(' ')}
+                            >
+                                { mainPage ? <ThemeProvider theme={theme}>
+                                    <ProgressDots num={4} selected={pageIdx || 0} />
+                                </ThemeProvider> : null }
+                                <span className={styles.mainPageTitleText}>{title}</span>
+                            </motion.span>
+                        </div>
                         {mainPage ? <motion.span
                             variants={enterVariants}
                             initial="hidden"

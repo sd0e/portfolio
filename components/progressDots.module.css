@@ -1,0 +1,10 @@
+.dot {
+    width: 0.5rem;
+    height: 0.5rem;
+    border-radius: 0.25rem;
+    background-color: rgba(242, 242, 242, 0.2);
+}
+
+.dotSelected {
+    background-color: rgba(242, 242, 242, 0.8);
+}
