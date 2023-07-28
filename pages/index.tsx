@@ -5,8 +5,10 @@ import classes from '@/styles/Home.module.css';
 import Image from 'next/image';
 import { useRouter } from 'next/router';
 import Link from 'next/link';
-import { ArrowDownwardOutlined } from '@mui/icons-material';
+import { ArrowDownwardOutlined, WorkOutline } from '@mui/icons-material';
 import { useState } from 'react';
+import SkillButton from '@/components/skillbutton';
+import { Tooltip } from '@mui/material';
 
 const inter = Inter({ subsets: ['latin'], weight: ['600', '700'] });
 
@@ -46,14 +48,21 @@ export default function Home() {
       <div className={classes.homeOuter}>
         <div className={classes.homeCentral}>
           <h1 className={inter.className} style={{ marginBottom: '1.5rem' }}>{siteName}</h1>
-          <h2 className={inter.className}>{siteDescription}</h2>
+          <h2 className={inter.className} style={{ marginBottom: '3rem' }}>{siteDescription}</h2>
+          <a href="https://hire.sebdoe.com" target="_blank" rel="noreferrer">
+            <SkillButton Icon={WorkOutline}>Hire Me</SkillButton>
+          </a>
         </div>
       </div>
       <div className={classes.bottom}>
-        <Link href="/about">
-          <ArrowDownwardOutlined className={classes.scrollIcon} />
-          {/* <span className={[inter.className, classes.scrollText].join(' ')}>Scroll</span> */}
-        </Link>
+        <Tooltip title="Scroll or swipe between pages">
+          <Link href="/about">
+            <div className={classes.scrollHolder}>
+              <span className={[inter.className, classes.scrollText].join(' ')}>Explore</span>
+              <ArrowDownwardOutlined className={classes.scrollIcon} />
+            </div>
+          </Link>
+        </Tooltip>
       </div>
     </Layout>
   )

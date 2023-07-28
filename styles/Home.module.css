@@ -39,19 +39,22 @@
     text-align: center;
 }
 
-/* .scrollText {
+.scrollText {
     display: block;
     font-size: 1rem;
     color: rgba(242, 242, 242, 0.8);
     font-weight: 600;
-    animation: jumpText 4s ease-in-out infinite;
     animation-delay: 1.5s;
-} */
+    margin-bottom: 1.5rem;
+}
 
 .scrollIcon {
     color: rgba(242, 242, 242, 0.8);
-    animation: jumpText 4s ease-in-out infinite;
     animation-delay: 1.5s;
+}
+
+.scrollHolder {
+    animation: jumpText 4s ease-in-out infinite;
 }
 
 @keyframes jumpText {
