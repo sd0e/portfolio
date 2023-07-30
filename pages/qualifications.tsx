@@ -88,18 +88,18 @@ export default function Qualifications() {
                 <Table aria-label="GCSE results">
                     <TableHead>
                         <TableRow>
+                            <TableCell>Grade</TableCell>
                             <TableCell>Code</TableCell>
                             <TableCell>Subject</TableCell>
                             <TableCell>Exam Board</TableCell>
-                            <TableCell>Grade</TableCell>
                         </TableRow>
                     </TableHead>
                     <TableBody>
                         {gcseResults.map(result => <TableRow key={result.subject}>
+                            <TableCell>{result.grade}</TableCell>
                             <TableCell>{result.code}</TableCell>
                             <TableCell>{result.subject}</TableCell>
                             <TableCell>{result.examBoard}</TableCell>
-                            <TableCell>{result.grade}</TableCell>
                         </TableRow>)}
                     </TableBody>
                 </Table>
