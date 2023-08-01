@@ -7,4 +7,6 @@ link: 'http://livetransit.sebdoe.com/'
 priority: 1
 ---
 
-Live departures of Hong Kong buses.
+My first React app, this project provided an interesting opportunity to both use an API which was new at the time and to combine various sources of data, containing many edge cases.
+
+![a screenshot of a bus route loaded on the webpage](/images/live-transit.png)
