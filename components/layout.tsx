@@ -81,7 +81,7 @@ export default function Layout({ children, mainPage = false, headerOnly = false,
             id="wrapper"
             onWheel={e => {
                 const isTouchpad = (e as any).wheelDeltaY ? (e as any).wheelDeltaY === -3 * e.deltaY : e.deltaMode === 0;
-                if (isTouchpad) e.stopPropagation();
+                if (isTouchpad) e.preventDefault();
                 if (!scrollNav) return;
                 if (e.deltaY > 0 && next) {
                     moveNext();
