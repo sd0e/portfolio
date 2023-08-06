@@ -45,16 +45,14 @@ export default function Layout({ children, mainPage = false, headerOnly = false,
         enter: { opacity: 1, x: 0, y: 0 },
     }
 
-    const moveNext = (isTouchpad?: boolean): void => {
-        if (!next || !scrollNav || ((document as any).getElementById('wrapper').scrollTop + 50) < (document as any).getElementById('wrapper').scrollHeight - (window as any).visualViewport.height || (window && new Date().getTime() - (window as any).lastTouchpad < 200)) return;
-        if (isTouchpad && window) (window as any).lastTouchpad = new Date().getTime();
+    const moveNext = (): void => {
+        if (!next || !scrollNav || ((document as any).getElementById('wrapper').scrollTop + 50) < (document as any).getElementById('wrapper').scrollHeight - (window as any).visualViewport.height) return;
         (window as any).next = true;
         router.push(next);
     }
 
-    const movePrev = (isTouchpad?: boolean): void => {
-        if (!prev || !scrollNav || (document as any).getElementById('wrapper').scrollTop !== 0 || (window && new Date().getTime() - (window as any).lastTouchpad < 200)) return;
-        if (isTouchpad && window) (window as any).lastTouchpad = new Date().getTime();
+    const movePrev = (): void => {
+        if (!prev || !scrollNav || (document as any).getElementById('wrapper').scrollTop !== 0) return;
         (window as any).next = false;
         router.push(prev);
     }
@@ -83,11 +81,12 @@ export default function Layout({ children, mainPage = false, headerOnly = false,
             id="wrapper"
             onWheel={e => {
                 const isTouchpad = (e as any).wheelDeltaY ? (e as any).wheelDeltaY === -3 * e.deltaY : e.deltaMode === 0;
+                if (isTouchpad) e.stopPropagation();
                 if (!scrollNav) return;
                 if (e.deltaY > 0 && next) {
-                    moveNext(isTouchpad);
+                    moveNext();
                 } else if (e.deltaY < 0 && prev) {
-                    movePrev(isTouchpad);
+                    movePrev();
                 }
             }}
             onTouchStart={e => prevY = e.nativeEvent.touches[0].clientY}
