@@ -5,7 +5,7 @@ import { Inter } from 'next/font/google';
 import { motion } from 'framer-motion';
 import React from 'react';
 import { useRouter } from 'next/router';
-import { createTheme, LinearProgress, ThemeProvider } from '@mui/material';
+import { createTheme, ThemeProvider, Stack } from '@mui/material';
 import ProgressDots from './progressDots';
 
 export const siteName = 'Seb Doe';
@@ -127,29 +127,33 @@ export default function Layout({ children, mainPage = false, headerOnly = false,
                         draggable={false}
                     /> : null }
                     <div className={styles.mainPageHeader}>
-                        <div>
-                            <motion.span
+                        <Stack direction="column" spacing={4}>
+                            <div>
+                                <motion.span
+                                    variants={enterVariants}
+                                    initial="hidden"
+                                    animate="enter"
+                                    transition={{ type: 'ease-in-out', duration: 0.25, delay: 0.15 }}
+                                    className={[inter.className, styles.mainPageTitle].join(' ')}
+                                >
+                                    <Stack direction="column" spacing={4}>
+                                        { mainPage ? <ThemeProvider theme={theme}>
+                                            <ProgressDots num={4} selected={pageIdx || 0} />
+                                        </ThemeProvider> : null }
+                                        <span className={styles.mainPageTitleText}>{title}</span>
+                                    </Stack>
+                                </motion.span>
+                            </div>
+                            {description ? <motion.span
                                 variants={enterVariants}
                                 initial="hidden"
                                 animate="enter"
                                 transition={{ type: 'ease-in-out', duration: 0.25, delay: 0.15 }}
-                                className={[inter.className, styles.mainPageTitle].join(' ')}
+                                className={[inter.className, styles.mainPageDescription].join(' ')}
                             >
-                                { mainPage ? <ThemeProvider theme={theme}>
-                                    <ProgressDots num={4} selected={pageIdx || 0} />
-                                </ThemeProvider> : null }
-                                <span className={styles.mainPageTitleText}>{title}</span>
-                            </motion.span>
-                        </div>
-                        {description ? <motion.span
-                            variants={enterVariants}
-                            initial="hidden"
-                            animate="enter"
-                            transition={{ type: 'ease-in-out', duration: 0.25, delay: 0.15 }}
-                            className={[inter.className, styles.mainPageDescription].join(' ')}
-                        >
-                            {description}
-                        </motion.span> : null}
+                                {description}
+                            </motion.span> : null}
+                        </Stack>
                     </div>
                 </> : null}
                 <motion.main

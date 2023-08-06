@@ -5,10 +5,10 @@ import classes from '@/styles/Home.module.css';
 import Image from 'next/image';
 import { useRouter } from 'next/router';
 import Link from 'next/link';
-import { ArrowDownwardOutlined, WorkOutline } from '@mui/icons-material';
+import { ArrowDownwardOutlined, ArticleOutlined, GitHub, WorkOutline } from '@mui/icons-material';
 import { useState } from 'react';
 import SkillButton from '@/components/skillbutton';
-import { Tooltip } from '@mui/material';
+import { Stack, Tooltip } from '@mui/material';
 
 const inter = Inter({ subsets: ['latin'], weight: ['600', '700'] });
 
@@ -47,11 +47,21 @@ export default function Home() {
       />
       <div className={classes.homeOuter}>
         <div className={classes.homeCentral}>
-          <h1 className={inter.className} style={{ marginBottom: '1.5rem' }}>{siteName}</h1>
-          <h2 className={inter.className} style={{ marginBottom: '3rem' }}>{siteDescription}</h2>
-          <a href="https://hire.sebdoe.com" target="_blank" rel="noreferrer">
-            <SkillButton Icon={WorkOutline}>Hire Me</SkillButton>
-          </a>
+          <Stack direction="column" spacing={4} alignItems="center">
+            <h1 className={inter.className}>{siteName}</h1>
+            <h2 className={inter.className}>{siteDescription}</h2>
+            <Stack sx={{ paddingTop: '16px' }} direction="row" spacing={2}>
+              <a href="https://sebdoe.com" target="_blank" rel="noreferrer">
+                <SkillButton Icon={ArticleOutlined}>Blog</SkillButton>
+              </a>
+              <a href="https://github.com/sd0e" target="_blank" rel="noreferrer">
+                <SkillButton Icon={GitHub}>GitHub</SkillButton>
+              </a>
+              <a href="https://hire.sebdoe.com" target="_blank" rel="noreferrer">
+                <SkillButton Icon={WorkOutline}>Hire Me</SkillButton>
+              </a>
+            </Stack>
+          </Stack>
         </div>
       </div>
       <div className={classes.bottom}>
