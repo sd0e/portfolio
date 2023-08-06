@@ -46,7 +46,7 @@ export default function Layout({ children, mainPage = false, headerOnly = false,
     }
 
     const moveNext = (): void => {
-        if (!next || !scrollNav || (document as any).getElementById('wrapper').scrollTop < (document as any).getElementById('wrapper').scrollHeight - (window as any).visualViewport.height) return;
+        if (!next || !scrollNav || ((document as any).getElementById('wrapper').scrollTop + 50) < (document as any).getElementById('wrapper').scrollHeight - (window as any).visualViewport.height) return;
         (window as any).next = true;
         router.push(next);
     }
