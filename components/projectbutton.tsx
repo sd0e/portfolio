@@ -1,11 +1,11 @@
 import styles from '@/components/projectbutton.module.css';
-import { Button, createTheme, ThemeProvider } from '@mui/material';
+import { Button, createTheme, ThemeProvider, Stack } from '@mui/material';
 import { Inter } from 'next/font/google';
 import Link from 'next/link';
 
 const inter = Inter({ subsets: ['latin'], weight: ['500', '600'] })
 
-export default function ProjectButton({ id, name, date, languages }: { id: string, name: string, date: string, languages: Array<string> }) {
+export default function ProjectButton({ id, name, date, languages, selectedSkill }: { id: string, name: string, date: string, languages: Array<string>, selectedSkill?: string }) {
     const theme = createTheme({
         palette: {
             mode: 'dark',
@@ -30,8 +30,13 @@ export default function ProjectButton({ id, name, date, languages }: { id: strin
                 <ThemeProvider theme={theme}>
                     <Button aria-label={`View the project ${name}`}>
                         <div className={styles.buttonInner}>
-                            <span className={[styles.projectName, inter.className].join(' ')}>{name}</span>
-                            <span className={[styles.projectDate, inter.className].join(' ')}>{date}</span>
+                            <Stack direction="column" spacing={1} alignItems="flex-start">
+                                <span className={[styles.projectName, inter.className].join(' ')}>{name}</span>
+                                <span className={[styles.projectDate, inter.className].join(' ')}>{date}</span>
+                                <Stack direction="row" spacing={2}>
+                                    {languages.map(language => <span className={[language === selectedSkill ? styles.projectLanguageSelected : styles.projectLanguage, inter.className].join(' ')} key={language}>{language}</span>)}
+                                </Stack>
+                            </Stack>
                         </div>
                     </Button>
                 </ThemeProvider>

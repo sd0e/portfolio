@@ -87,6 +87,8 @@ skills: Array<string>}) {
     setItem('date', newDate.toString());
   }
 
+  console.log(projects);
+
   return (
     <ThemeProvider theme={theme}>
       <Layout mainPage title="Projects" description="Some of my notable projects" image={`/assets/SVG${pathname}.svg`} prev="/skills" pageIdx={4}>
@@ -204,6 +206,7 @@ skills: Array<string>}) {
               date={`${project.month} ${project.year}`}
               languages={project.languages}
               key={project.id}
+              selectedSkill={skillsVal || undefined}
             />
           }}
         </Boxy>

@@ -22,3 +22,15 @@
     font-size: 0.9rem;
     color: rgba(242, 242, 242, 0.8);
 }
+
+.projectLanguage {
+    display: block;
+    font-size: 0.9rem;
+    color: rgba(242, 242, 242, 0.4);
+}
+
+.projectLanguageSelected {
+    display: block;
+    font-size: 0.9rem;
+    color: rgba(242, 242, 242, 0.8);
+}
