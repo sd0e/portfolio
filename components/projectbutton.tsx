@@ -1,11 +1,12 @@
 import styles from '@/components/projectbutton.module.css';
+import { Star } from '@mui/icons-material';
 import { Button, createTheme, ThemeProvider, Stack } from '@mui/material';
 import { Inter } from 'next/font/google';
 import Link from 'next/link';
 
 const inter = Inter({ subsets: ['latin'], weight: ['500', '600'] })
 
-export default function ProjectButton({ id, name, date, languages, selectedSkill }: { id: string, name: string, date: string, languages: Array<string>, selectedSkill?: string }) {
+export default function ProjectButton({ id, name, date, languages, selectedSkill, featured }: { id: string, name: string, date: string, languages: Array<string>, selectedSkill?: string, featured: boolean }) {
     const theme = createTheme({
         palette: {
             mode: 'dark',
@@ -30,10 +31,13 @@ export default function ProjectButton({ id, name, date, languages, selectedSkill
                 <ThemeProvider theme={theme}>
                     <Button aria-label={`View the project ${name}`}>
                         <div className={styles.buttonInner}>
-                            <Stack direction="column" spacing={1} alignItems="flex-start">
-                                <span className={[styles.projectName, inter.className].join(' ')}>{name}</span>
-                                <span className={[styles.projectDate, inter.className].join(' ')}>{date}</span>
+                            <Stack direction="column" spacing={1} alignItems="flex-start" sx={{ width: '100%' }}>
+                                <div className={styles.projectInfoTop}>
+                                    <span className={[styles.projectName, inter.className].join(' ')}>{name}</span>
+                                    <Star fontSize="small" sx={{ color: 'rgba(255, 255, 255, 0.8)' }} />
+                                </div>
                                 <Stack direction="row" spacing={2}>
+                                    <span className={[styles.projectDate, inter.className].join(' ')}>{date}</span>
                                     {languages.map(language => <span className={[language === selectedSkill ? styles.projectLanguageSelected : styles.projectLanguage, inter.className].join(' ')} key={language}>{language}</span>)}
                                 </Stack>
                             </Stack>
