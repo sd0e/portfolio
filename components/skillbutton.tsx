@@ -22,6 +22,12 @@ const theme = createTheme({
                 }
             }
         }
+    },
+    typography: {
+        fontFamily: [
+            '"Inter"',
+            'sans-serif'
+        ].join(',')
     }
 });
 

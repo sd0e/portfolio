@@ -138,7 +138,7 @@ export default function Layout({ children, mainPage = false, headerOnly = false,
                                 >
                                     <Stack direction="column" spacing={4}>
                                         { mainPage ? <ThemeProvider theme={theme}>
-                                            <ProgressDots num={4} selected={pageIdx || 0} />
+                                            <ProgressDots num={5} selected={pageIdx || 0} />
                                         </ThemeProvider> : null }
                                         <span className={styles.mainPageTitleText}>{title}</span>
                                     </Stack>
