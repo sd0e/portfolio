@@ -11,6 +11,9 @@ export default function Qualifications() {
         palette: {
             mode: 'dark',
         },
+        typography: {
+            fontFamily: '"Inter", sans-serif'
+        }
     });
 
     const gcseResults: Array<{ code: string, subject: string, examBoard: string, grade: string }> = [
@@ -101,6 +104,27 @@ export default function Qualifications() {
                             <TableCell>{result.subject}</TableCell>
                             <TableCell>{result.examBoard}</TableCell>
                         </TableRow>)}
+                    </TableBody>
+                </Table>
+            </TableContainer>
+        </ThemeProvider>
+        <FancySubheading>UKMT Senior Mathematical Challenge</FancySubheading>
+        <ThemeProvider theme={theme}>
+            <TableContainer>
+                <Table aria-label="GCSE results">
+                    <TableHead>
+                        <TableRow>
+                            <TableCell>Year</TableCell>
+                            <TableCell>Mark</TableCell>
+                            <TableCell>Level</TableCell>
+                        </TableRow>
+                    </TableHead>
+                    <TableBody>
+                        <TableRow>
+                            <TableCell>2023</TableCell>
+                            <TableCell>92</TableCell>
+                            <TableCell>Gold</TableCell>
+                        </TableRow>
                     </TableBody>
                 </Table>
             </TableContainer>
