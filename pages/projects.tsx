@@ -24,7 +24,7 @@ export default function Projects({ projects, skills }: {
     languages: Array<string>,
     month: string,
     year: number,
-    link: string,
+    link: string[],
     priority: number
 }>,
 skills: Array<string>}) {

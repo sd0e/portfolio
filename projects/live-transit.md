@@ -4,7 +4,7 @@ headline: 'Live HK bus departure times'
 languages: ['React', 'JavaScript']
 month: 'Jul'
 year: 2021
-link: 'http://livetransit.sebdoe.com/'
+link: ['http://livetransit.sebdoe.com/', 'https://github.com/sd0e/livetransit']
 priority: 1
 ---
 

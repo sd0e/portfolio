@@ -28,7 +28,7 @@ export function getSortedProjects() {
                 languages: Array<string>,
                 month: string,
                 year: number,
-                link: string,
+                link: string[],
                 priority: number
             })
         }
@@ -95,7 +95,7 @@ export async function getProjectData(id: string) {
             languages: Array<string>,
             month: string,
             year: number,
-            link: string,
+            link: string[],
             priority: number
         })
     }

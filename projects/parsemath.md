@@ -4,7 +4,7 @@ headline: 'Math parsing algorithm'
 languages: ['JavaScript']
 month: 'Jan'
 year: 2023
-link: 'http://github.com/sd0e/parsemath'
+link: ['http://github.com/sd0e/parsemath']
 priority: 2
 ---
 

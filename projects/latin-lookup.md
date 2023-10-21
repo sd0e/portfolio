@@ -4,7 +4,7 @@ headline: 'Modern Latin dictionary'
 languages: ['React', 'JavaScript']
 month: 'Dec'
 year: 2022
-link: 'https://latinlookup-33567.web.app/'
+link: ['https://latinlookup-33567.web.app/']
 priority: 2
 ---
 
