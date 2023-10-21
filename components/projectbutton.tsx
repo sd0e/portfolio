@@ -34,7 +34,7 @@ export default function ProjectButton({ id, name, date, languages, selectedSkill
                             <Stack direction="column" spacing={2} alignItems="flex-start" sx={{ width: '100%' }}>
                                 <div className={styles.projectInfoTop}>
                                     <span className={[styles.projectName, inter.className].join(' ')}>{name}</span>
-                                    <Star fontSize="small" sx={{ color: 'rgba(255, 255, 255, 0.8)' }} />
+                                    { featured ? <Star fontSize="small" sx={{ color: 'rgba(255, 255, 255, 0.8)' }} /> : null }
                                 </div>
                                 <span className={[styles.projectHeadline, inter.className].join(' ')}>{headline}</span>
                                 <Stack direction="row" spacing={2}>

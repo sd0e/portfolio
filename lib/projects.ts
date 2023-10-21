@@ -35,7 +35,7 @@ export function getSortedProjects() {
     });
 
     return allProjectData.sort((a, b) => {
-        return (a.priority < b.priority) ? 1 : -1;
+        return (a.priority > b.priority) ? 1 : -1;
     })
 }
 
