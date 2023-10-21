@@ -58,7 +58,10 @@ skills: Array<string>}) {
           }
         }
       }
-    }
+    },
+    typography: {
+      fontFamily: '"Inter", sans-serif',
+    },
   });
 
   useEffect(() => {
