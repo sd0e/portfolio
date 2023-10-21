@@ -24,6 +24,7 @@ export function getSortedProjects() {
             id,
             ...(matterRes.data as {
                 name: string,
+                headline: string,
                 languages: Array<string>,
                 month: string,
                 year: number,
@@ -90,6 +91,7 @@ export async function getProjectData(id: string) {
         contentAsHtml,
         ...(matterRes.data as {
             name: string,
+            headline: string,
             languages: Array<string>,
             month: string,
             year: number,

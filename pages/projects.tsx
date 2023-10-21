@@ -20,6 +20,7 @@ export default function Projects({ projects, skills }: {
   projects: Array<{
     id: string,
     name: string,
+    headline: string,
     languages: Array<string>,
     month: string,
     year: number,
@@ -208,6 +209,7 @@ skills: Array<string>}) {
               languages={project.languages}
               key={project.id}
               selectedSkill={skillsVal || undefined}
+              headline={project.headline}
               featured={project.priority === 1}
             />
           }}

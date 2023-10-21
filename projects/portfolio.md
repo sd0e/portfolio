@@ -1,5 +1,6 @@
 ---
 name: 'Portfolio'
+headline: 'Personal website'
 languages: ['Next.js', 'React', 'JavaScript']
 month: 'Mar'
 year: 2023

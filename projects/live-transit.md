@@ -1,5 +1,6 @@
 ---
 name: 'LiveTransit HK'
+headline: 'Live HK bus departure times'
 languages: ['React', 'JavaScript']
 month: 'Jul'
 year: 2021

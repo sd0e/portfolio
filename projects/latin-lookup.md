@@ -1,5 +1,6 @@
 ---
 name: 'Latin Lookup'
+headline: 'Modern Latin dictionary'
 languages: ['React', 'JavaScript']
 month: 'Dec'
 year: 2022

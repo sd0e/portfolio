@@ -1,5 +1,6 @@
 ---
 name: 'parsemath'
+headline: 'Math parsing algorithm'
 languages: ['JavaScript']
 month: 'Jan'
 year: 2023

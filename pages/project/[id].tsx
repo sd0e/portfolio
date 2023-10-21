@@ -9,6 +9,7 @@ const inter = Inter({ subsets: ['latin'], weight: ['600', '700'] })
 
 export default function Project({ projectInfo }: { projectInfo: {
     name: string,
+    headline: string,
     id: string,
     languages: Array<string>,
     month: string,

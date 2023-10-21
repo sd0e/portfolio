@@ -42,3 +42,8 @@
     font-size: 0.9rem;
     color: rgba(242, 242, 242, 0.8);
 }
+
+.projectHeadline {
+    font-size: 0.8rem;
+    color: rgba(242, 242, 242, 0.6);
+}
