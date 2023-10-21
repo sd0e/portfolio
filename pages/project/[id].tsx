@@ -5,7 +5,7 @@ import Head from "next/head";
 import { Inter } from 'next/font/google';
 import ProjectInfo from "@/components/projectinfo";
 
-const inter = Inter({ subsets: ['latin'], weight: ['600', '700'] })
+const inter = Inter({ subsets: ['latin'], weight: ['400', '500', '600', '700'] })
 
 export default function Project({ projectInfo }: { projectInfo: {
     name: string,
@@ -25,7 +25,7 @@ export default function Project({ projectInfo }: { projectInfo: {
         <link rel="icon" href="/favicon.ico" />
       </Head>
       <ProjectInfo Skills={projectInfo.languages} URL={projectInfo.link} Time={`${projectInfo.month} ${projectInfo.year.toString()}`} Year={projectInfo.year} />
-      <div dangerouslySetInnerHTML={{ __html: projectInfo.contentAsHtml }} className={inter.className} />
+      <div dangerouslySetInnerHTML={{ __html: projectInfo.contentAsHtml }} className={inter.className} style={{ paddingBottom: 32 }} />
     </Layout>
   )
 }
