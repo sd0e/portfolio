@@ -112,9 +112,15 @@ export default function Layout({ children, mainPage = false, headerOnly = false,
                 <Head>
                     <title>{title ? title : siteName}</title>
                     <link rel="icon" href="/favicon.ico" />
-                    <meta name="description" content={overrideMetaDescription} />
+                    <meta name="title" content={title ? title : siteName} />
                     <meta name="og:title" content={title ? title : siteName} />
+			        <meta name="twitter:title" content={title ? title : siteName} />
+                    <meta name="description" content={overrideMetaDescription} />
+                    <meta name="og:description" content={overrideMetaDescription} />
+                    <meta name="twitter:description" content={overrideMetaDescription} />
                     <meta name="twitter:card" content="summary_large_image" />
+			        <meta name="twitter:site" content="@sbd0e" />
+			        <meta property="og:site_name" content={siteName} />
                 </Head>
                 {mainPage || headerOnly ? <>
                     { gradientImage ? <Image
