@@ -121,6 +121,8 @@ export default function Layout({ children, mainPage = false, headerOnly = false,
                     <meta name="twitter:card" content="summary_large_image" />
 			        <meta name="twitter:site" content="@sbd0e" />
 			        <meta property="og:site_name" content={siteName} />
+                    <meta name="author" content="Seb Doe" />
+                    <meta name="keywords" content="Software Engineer, Hire, Fullstack, React, Next.js, Node.js, UK, London" />
                 </Head>
                 {mainPage || headerOnly ? <>
                     { gradientImage ? <Image
