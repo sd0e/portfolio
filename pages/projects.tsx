@@ -93,7 +93,7 @@ skills: Array<string>}) {
 
   return (
     <ThemeProvider theme={theme}>
-      <Layout mainPage title="Projects" description="Some of my notable projects" image={`/assets/SVG${pathname}.svg`} prev="/skills" next="/contact" pageIdx={4}>
+      <Layout mainPage title="Projects" description="Some of my notable projects" image={`/assets/SVG${pathname}.svg`} prev="/skills" next="/contact" pageIdx={4} overrideMetaDescription="Some of my notable projects">
         <Head>
           <meta name="viewport" content="width=device-width, initial-scale=1" />
           <link rel="icon" href="/favicon.ico" />

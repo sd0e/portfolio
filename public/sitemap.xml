@@ -44,4 +44,8 @@
 		<loc>https://about.sebdoe.com/project/latin-lookup</loc>
 		<priority>0.3</priority>
 	</url>
+	<url>
+		<loc>https://about.sebdoe.com/qualifications</loc>
+		<priority>0.4</priority>
+	</url>
 </urlset>

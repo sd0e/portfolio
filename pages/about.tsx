@@ -11,7 +11,7 @@ export default function Home() {
   const pathname = router.pathname;
 
   return (
-    <Layout mainPage title="About Me" description="Hey, I'm Seb!" image={`/assets/SVG${pathname}.svg`} prev="/" next="/skills" pageIdx={2}>
+    <Layout mainPage title="About Me" description="Hey, I'm Seb!" image={`/assets/SVG${pathname}.svg`} prev="/" next="/skills" pageIdx={2} overrideMetaDescription="Learn more about me">
       <Head>
         <meta name="viewport" content="width=device-width, initial-scale=1" />
         <link rel="icon" href="/favicon.ico" />

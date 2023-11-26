@@ -9,13 +9,13 @@ import { createTheme, ThemeProvider, Stack } from '@mui/material';
 import ProgressDots from './progressDots';
 
 export const siteName = 'Seb Doe';
-export const siteDescription = 'Software Engineer';
+export const siteDescription = 'Software Engineer in the UK';
 
 // TODO: Make pages static
 
 const inter = Inter({ subsets: ['latin'], weight: ['600', '700'] });
 
-export default function Layout({ children, mainPage = false, headerOnly = false, scrollNav = true, title, description, image, prev, next, onMouseMove, pageIdx, fullHeight = false }: { children: React.ReactNode, mainPage?: boolean, headerOnly?: boolean, scrollNav?: boolean, title?: string, description?: string, image?: string, prev?: string, next?: string, onMouseMove?: (e: React.MouseEvent<HTMLDivElement, MouseEvent>) => void, pageIdx?: number, fullHeight?: boolean }) {
+export default function Layout({ children, mainPage = false, headerOnly = false, scrollNav = true, title, description, image, prev, next, onMouseMove, pageIdx, fullHeight = false, overrideMetaDescription = siteDescription }: { children: React.ReactNode, mainPage?: boolean, headerOnly?: boolean, scrollNav?: boolean, title?: string, description?: string, image?: string, prev?: string, next?: string, onMouseMove?: (e: React.MouseEvent<HTMLDivElement, MouseEvent>) => void, pageIdx?: number, fullHeight?: boolean, overrideMetaDescription?: string }) {
     const gradientImage = image || '@/assets/SVG/index.svg';
     const router = useRouter();
 
@@ -110,10 +110,10 @@ export default function Layout({ children, mainPage = false, headerOnly = false,
                 transition={{ type: 'ease-in-out', duration: 0.25 }}
             >
                 <Head>
-                    <title>{title ? `${title} - ${siteName}` : siteName}</title>
+                    <title>{title ? title : siteName}</title>
                     <link rel="icon" href="/favicon.ico" />
-                    <meta name="description" content={siteDescription} />
-                    <meta name="og:title" content={siteName} />
+                    <meta name="description" content={overrideMetaDescription} />
+                    <meta name="og:title" content={title ? title : siteName} />
                     <meta name="twitter:card" content="summary_large_image" />
                 </Head>
                 {mainPage || headerOnly ? <>
