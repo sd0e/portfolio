@@ -8,7 +8,7 @@ import { useRouter } from 'next/router';
 import { createTheme, ThemeProvider, Stack } from '@mui/material';
 import ProgressDots from './progressDots';
 
-export const siteName = 'Seb Doe';
+export const siteName = 'Seb Doe - Portfolio';
 export const siteDescription = 'Software Engineer in the UK';
 
 // TODO: Make pages static

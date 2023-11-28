@@ -1,6 +1,6 @@
 import Head from 'next/head';
 import { Inter } from 'next/font/google';
-import Layout, { siteDescription, siteName } from '@/components/layout';
+import Layout, { siteDescription } from '@/components/layout';
 import classes from '@/styles/Home.module.css';
 import Image from 'next/image';
 import { useRouter } from 'next/router';
@@ -48,7 +48,7 @@ export default function Home() {
       <div className={classes.homeOuter}>
         <div className={classes.homeCentral}>
           <Stack direction="column" spacing={4} alignItems="center">
-            <h1 className={inter.className}>{siteName}</h1>
+            <h1 className={inter.className}>Seb Doe</h1>
             <h2 className={inter.className}>{siteDescription}</h2>
             <Stack sx={{ paddingTop: '16px' }} direction="row" spacing={2}>
               <a href="https://sebdoe.com" target="_blank" rel="noreferrer">
