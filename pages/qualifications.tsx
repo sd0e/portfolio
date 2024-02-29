@@ -16,65 +16,75 @@ export default function Qualifications() {
         }
     });
 
-    const gcseResults: Array<{ code: string, subject: string, examBoard: string, grade: string }> = [
+    const gcseResults: Array<{ code: string, subject: string, examBoard: string, percentage: string, grade: string }> = [
         {
             code: "4MA1",
             subject: "Mathematics",
             examBoard: "Edexcel IGCSE",
+            percentage: "98%",
             grade: "9"
         },
         {
             code: "J277",
             subject: "Computer Science",
             examBoard: "OCR GCSE",
-            grade: "9"
-        },
-        {
-            code: "4BI1",
-            subject: "Biology (Triple)",
-            examBoard: "Edexcel IGCSE",
+            percentage: "95%",
             grade: "9"
         },
         {
             code: "4CH1",
             subject: "Chemistry (Triple)",
             examBoard: "Edexcel IGCSE",
+            percentage: "95%",
             grade: "9"
         },
         {
             code: "4PH1",
             subject: "Physics (Triple)",
             examBoard: "Edexcel IGCSE",
+            percentage: "94%",
+            grade: "9"
+        },
+        {
+            code: "4BI1",
+            subject: "Biology (Triple)",
+            examBoard: "Edexcel IGCSE",
+            percentage: "93%",
             grade: "9"
         },
         {
             code: "8203C",
             subject: "Graphic Communication",
             examBoard: "AQA GCSE",
+            percentage: "93%",
             grade: "9"
         },
         {
             code: "J282",
             subject: "Latin",
             examBoard: "OCR GCSE",
-            grade: "9"
-        },
-        {
-            code: "7160",
-            subject: "Spanish",
-            examBoard: "CIE IGCSE",
-            grade: "9"
-        },
-        {
-            code: "4EA1",
-            subject: "English Language",
-            examBoard: "Edexcel IGCSE",
+            percentage: "90%",
             grade: "9"
         },
         {
             code: "4ET1",
             subject: "English Literature",
             examBoard: "Edexcel IGCSE",
+            percentage: "84%",
+            grade: "9"
+        },
+        {
+            code: "7160",
+            subject: "Spanish",
+            examBoard: "CIE IGCSE",
+            percentage: "Unknown",
+            grade: "9"
+        },
+        {
+            code: "4EA1",
+            subject: "English Language",
+            examBoard: "Edexcel IGCSE",
+            percentage: "Unknown",
             grade: "9"
         }
     ];
@@ -92,16 +102,18 @@ export default function Qualifications() {
                     <TableHead>
                         <TableRow>
                             <TableCell>Grade</TableCell>
-                            <TableCell>Code</TableCell>
                             <TableCell>Subject</TableCell>
+                            <TableCell>Percentage</TableCell>
+                            <TableCell>Code</TableCell>
                             <TableCell>Exam Board</TableCell>
                         </TableRow>
                     </TableHead>
                     <TableBody>
                         {gcseResults.map(result => <TableRow key={result.subject}>
                             <TableCell>{result.grade}</TableCell>
-                            <TableCell>{result.code}</TableCell>
                             <TableCell>{result.subject}</TableCell>
+                            <TableCell>{result.percentage}</TableCell>
+                            <TableCell>{result.code}</TableCell>
                             <TableCell>{result.examBoard}</TableCell>
                         </TableRow>)}
                     </TableBody>
