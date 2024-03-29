@@ -12,6 +12,10 @@ export default function Home() {
   const router = useRouter();
   const pathname = router.pathname;
 
+  const displayEmail = () => {
+	window.alert('Email sebastiandoe5 at gmail dot com');
+  }
+
   return (
     <Layout mainPage title="Contact" image={`/assets/SVG${pathname}.svg`} prev="/projects" pageIdx={5} overrideMetaDescription="Get in contact with me">
 		<Head>
@@ -21,7 +25,7 @@ export default function Home() {
 		<Stack direction="column" spacing={4}>
 			<p className={inter.className}>If you have any enquiries whatsoever, please do not hesitate to contact me using one of the methods below.</p>
 			<Stack direction="row" spacing={2}>
-				<a href="mailto:seb@sebdoe.com" target="_blank" rel="noreferrer">
+				<a onClick={displayEmail} target="_blank" rel="noreferrer">
 					<SkillButton Icon={MailOutlined}>Email</SkillButton>
 				</a>
 				<a href="https://twitter.com/sbd0e" target="_blank" rel="noreferrer">
