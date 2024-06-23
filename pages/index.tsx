@@ -98,7 +98,7 @@ export default function Home() {
                 <Close fontSize="small" />
               </IconButton>
             </Stack>
-            <span className={[inter.className, classes.alertText].join(' ')}>Unfortunately, the page you were searching for could not be found. Please try again or <a href="https://github.com/sd0e" className={classes.alertLink} target="_blank" rel="noreferrer">search for the repository on my GitHub</a> to check for any updates.</span>
+            <span className={[inter.className, classes.alertText].join(' ')}>Unfortunately, the page you were searching for could not be found. Please try again or <a href="https://github.com/sd0e?tab=repositories" className={classes.alertLink} target="_blank" rel="noreferrer">search for the repository on my GitHub</a> to check for any updates.</span>
           </Stack>
         </ThemeProvider>
       </div> : null }
