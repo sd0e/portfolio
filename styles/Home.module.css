@@ -68,3 +68,29 @@
         transform: translateY(0);
     }
 }
+
+.alert {
+    position: fixed;
+    right: 4rem;
+    bottom: 4rem;
+    width: 20rem;
+    padding: 1rem;
+    border: 1px solid rgba(242, 242, 242, 0.2);
+    border-radius: 0.5rem;
+}
+
+.alertTitle {
+    display: inline-block;
+    font-size: 1rem;
+}
+
+.alertLink {
+    text-decoration: underline;
+}
+
+.alertText {
+    display: block;
+    font-weight: 400;
+    font-size: 0.8rem;
+    line-height: 1.4rem;
+}

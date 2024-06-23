@@ -5,10 +5,10 @@ import classes from '@/styles/Home.module.css';
 import Image from 'next/image';
 import { useRouter } from 'next/router';
 import Link from 'next/link';
-import { ArrowDownwardOutlined, ArticleOutlined, GitHub, WorkOutline } from '@mui/icons-material';
-import { useState } from 'react';
+import { ArrowDownwardOutlined, ArticleOutlined, Close, GitHub, WorkOutline } from '@mui/icons-material';
+import { useEffect, useState } from 'react';
 import SkillButton from '@/components/skillbutton';
-import { Stack, Tooltip } from '@mui/material';
+import { createTheme, IconButton, Stack, ThemeProvider, Tooltip } from '@mui/material';
 
 const inter = Inter({ subsets: ['latin'], weight: ['600', '700'] });
 
@@ -18,6 +18,8 @@ export default function Home() {
 
   const [centralDeltaX, setCentralDeltaX] = useState(0);
   const [centralDeltaY, setCentralDeltaY] = useState(0);
+
+  const [errorAlert, setErrorAlert] = useState(false);
 
   const onMouseMove = (e: React.MouseEvent<HTMLDivElement, MouseEvent>) => {
     const centralXDiff = window.innerWidth / 2 - e.clientX;
@@ -29,6 +31,19 @@ export default function Home() {
     setCentralDeltaX(centralXDiff < 0 ? centralDeltaX : -centralDeltaX);
     setCentralDeltaY(centralYDiff < 0 ? centralDeltaY : -centralDeltaY);
   }
+
+  useEffect(() => {
+    if (router.query["ref"] && router.query["ref"] === "404") {
+      setErrorAlert(true);
+      router.replace('/', undefined, { shallow: true });
+    }
+  }, [router]);
+
+  const theme = createTheme({
+    palette: {
+      mode: 'dark',
+    },
+  });
 
   return (
     <Layout next="/about" onMouseMove={onMouseMove} fullHeight>
@@ -74,6 +89,19 @@ export default function Home() {
           </Link>
         </Tooltip>
       </div>
+      { errorAlert ? <div className={classes.alert}>
+        <ThemeProvider theme={theme}>
+          <Stack direction="column" spacing={2}>
+            <Stack direction="row" spacing={2} alignItems="center" justifyContent="space-between">
+              <span className={[inter.className, classes.alertTitle].join(' ')}>Page Not Found</span>
+              <IconButton onClick={() => setErrorAlert(false)}>
+                <Close fontSize="small" />
+              </IconButton>
+            </Stack>
+            <span className={[inter.className, classes.alertText].join(' ')}>Unfortunately, the page you were searching for could not be found. Please try again or <a href="https://github.com/sd0e" className={classes.alertLink} target="_blank" rel="noreferrer">search for the repository on my GitHub</a> to check for any updates.</span>
+          </Stack>
+        </ThemeProvider>
+      </div> : null }
     </Layout>
   )
 }
