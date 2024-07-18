@@ -1,51 +1,51 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" xmlns:news="http://www.google.com/schemas/sitemap-news/0.9" xmlns:xhtml="http://www.w3.org/1999/xhtml" xmlns:mobile="http://www.google.com/schemas/sitemap-mobile/1.0" xmlns:image="http://www.google.com/schemas/sitemap-image/1.1" xmlns:video="http://www.google.com/schemas/sitemap-video/1.1">
 	<url>
-		<loc>https://about.sebdoe.com/</loc>
+		<loc>https://doe.lc/</loc>
 		<priority>1.0</priority>
 		<changefreq>weekly</changefreq>
 	</url>
 	<url>
-		<loc>https://about.sebdoe.com/about</loc>
+		<loc>https://doe.lc/about</loc>
 		<priority>0.8</priority>
 		<changefreq>weekly</changefreq>
 	</url>
 	<url>
-		<loc>https://about.sebdoe.com/skills</loc>
+		<loc>https://doe.lc/skills</loc>
 		<priority>0.4</priority>
 		<changefreq>weekly</changefreq>
 	</url>
 	<url>
-		<loc>https://about.sebdoe.com/projects</loc>
+		<loc>https://doe.lc/projects</loc>
 		<priority>0.8</priority>
 		<changefreq>weekly</changefreq>
 	</url>
 	<url>
-		<loc>https://about.sebdoe.com/contact</loc>
+		<loc>https://doe.lc/contact</loc>
 		<priority>0.8</priority>
 		<changefreq>weekly</changefreq>
 	</url>
 	<url>
-		<loc>https://about.sebdoe.com/project/live-transit</loc>
+		<loc>https://doe.lc/project/live-transit</loc>
 		<priority>0.3</priority>
 	</url>
 	<url>
-		<loc>https://about.sebdoe.com/project/portfolio</loc>
+		<loc>https://doe.lc/project/portfolio</loc>
 		<priority>0.3</priority>
 	</url>
 	<url>
-		<loc>https://about.sebdoe.com/project/parsemath</loc>
+		<loc>https://doe.lc/project/parsemath</loc>
 		<priority>0.3</priority>
 	</url>
 	<url>
-		<loc>https://about.sebdoe.com/project/live-cameras</loc>
+		<loc>https://doe.lc/project/live-cameras</loc>
 		<priority>0.3</priority>
 	</url>
 	<url>
-		<loc>https://about.sebdoe.com/project/latin-lookup</loc>
+		<loc>https://doe.lc/project/latin-lookup</loc>
 		<priority>0.3</priority>
 	</url>
 	<url>
-		<loc>https://about.sebdoe.com/qualifications</loc>
+		<loc>https://doe.lc/qualifications</loc>
 		<priority>0.4</priority>
 	</url>
 </urlset>
