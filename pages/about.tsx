@@ -15,6 +15,7 @@ export default function Home() {
       <Head>
         <meta name="viewport" content="width=device-width, initial-scale=1" />
         <link rel="icon" href="/favicon.ico" />
+        <link rel="canonical" href="https://doe.lc/about" />
       </Head>
       <p className={inter.className}>I am an 18-year-old software engineer; I love developing tools which help people achieve tasks more easily.</p>
       <p className={inter.className} style={{ marginTop: '1.5rem' }}>I am based in the UK, having previously lived in Sydney and Hong Kong. I am currently studying for my A-Level examinations with an aim of studying Computer Science at university.</p>

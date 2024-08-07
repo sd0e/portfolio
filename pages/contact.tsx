@@ -21,6 +21,7 @@ export default function Home() {
 		<Head>
 			<meta name="viewport" content="width=device-width, initial-scale=1" />
 			<link rel="icon" href="/favicon.ico" />
+        <link rel="canonical" href="https://doe.lc/contact" />
 		</Head>
 		<Stack direction="column" spacing={4}>
 			<p className={inter.className}>If you have any enquiries whatsoever, please do not hesitate to contact me using one of the methods below.</p>

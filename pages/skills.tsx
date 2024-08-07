@@ -67,6 +67,7 @@ export default function Skills() {
       <Head>
         <meta name="viewport" content="width=device-width, initial-scale=1" />
         <link rel="icon" href="/favicon.ico" />
+        <link rel="canonical" href="https://doe.lc/skills" />
       </Head>
       <Stack direction="row" spacing={0} sx={{ flexWrap: 'wrap', gap: 2 }} style={{ marginBottom: '3rem' }}>
         <Link href="/qualifications">

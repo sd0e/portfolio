@@ -94,6 +94,7 @@ export default function Qualifications() {
         <Head>
             <meta name="viewport" content="width=device-width, initial-scale=1" />
             <link rel="icon" href="/favicon.ico" />
+        <link rel="canonical" href="https://doe.lc/qualifications" />
         </Head>
         <FancySubheading>GCSE (2022 Series)</FancySubheading>
         <ThemeProvider theme={theme}>

@@ -97,6 +97,7 @@ skills: Array<string>}) {
         <Head>
           <meta name="viewport" content="width=device-width, initial-scale=1" />
           <link rel="icon" href="/favicon.ico" />
+        <link rel="canonical" href="https://doe.lc/projects" />
         </Head>
         <Stack direction="row" spacing={0} sx={{ flexWrap: 'wrap', gap: 2 }} style={{ marginBottom: '3rem' }}>
           <SkillButton Icon={CalendarMonthOutlined} id={dateId} onClick={e => {
