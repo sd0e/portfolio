@@ -18,7 +18,7 @@ export default function Home() {
         <link rel="canonical" href="https://doe.lc/about" />
       </Head>
       <p className={inter.className}>I am an 18-year-old software engineer; I love developing tools which help people achieve tasks more easily.</p>
-      <p className={inter.className} style={{ marginTop: '1.5rem' }}>I am based in the UK, having previously lived in Sydney and Hong Kong. I am currently studying for my A-Level examinations with an aim of studying Computer Science at university.</p>
+      <p className={inter.className} style={{ marginTop: '1.5rem' }}>I am based in the UK, having previously lived in Sydney and Hong Kong. I am soon starting a BEng in Computing at Imperial College London.</p>
       {/* <InfoBox Title="Available for work experience!" Description="I am available for work experience in July 2023 in London or online, please get in touch." /> */}
     </Layout>
   )

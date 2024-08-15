@@ -89,33 +89,117 @@ export default function Qualifications() {
         }
     ];
 
+    const aLevelResults: Array<{ code: string, subject: string, examBoard: string, mark: string, grade: string }> = [
+        {
+            code: "9MA0",
+            subject: "Mathematics",
+            examBoard: "Edexcel",
+            mark: "299 / 300",
+            grade: "A*"
+        },
+        {
+            code: "9FM0",
+            subject: "Further Mathematics",
+            examBoard: "Edexcel",
+            mark: "282 / 300",
+            grade: "A*"
+        },
+        {
+            code: "H446",
+            subject: "Computer Science",
+            examBoard: "OCR",
+            mark: "313 / 350",
+            grade: "A*"
+        },
+        {
+            code: "H556",
+            subject: "Physics",
+            examBoard: "OCR",
+            mark: "Unknown",
+            grade: "A*"
+        }
+    ];
+
+    function CustomTableCell({ children, header }: { children: string, header?: any }) {
+        return <TableCell sx={header ? {
+            fontWeight: 700,
+            opacity: 0.8
+        } : null}>{children}</TableCell>
+    }
+
     return (
         <Layout headerOnly scrollNav={false} title="Qualifications" image={`/assets/SVG/skills.svg`} description="Some of my qualifications" overrideMetaDescription="Some of my qualifications">
         <Head>
             <meta name="viewport" content="width=device-width, initial-scale=1" />
             <link rel="icon" href="/favicon.ico" />
-        <link rel="canonical" href="https://doe.lc/qualifications" />
+            <link rel="canonical" href="https://doe.lc/qualifications" />
         </Head>
+        <FancySubheading>A Level (2024 Series)</FancySubheading>
+        <ThemeProvider theme={theme}>
+            <TableContainer>
+                <Table aria-label="A Level results">
+                    <TableHead>
+                        <TableRow>
+                            <CustomTableCell header>Grade</CustomTableCell>
+                            <CustomTableCell header>Subject</CustomTableCell>
+                            <CustomTableCell header>Mark</CustomTableCell>
+                            <CustomTableCell header>Code</CustomTableCell>
+                            <CustomTableCell header>Exam Board</CustomTableCell>
+                        </TableRow>
+                    </TableHead>
+                    <TableBody>
+                        {aLevelResults.map(result => <TableRow key={result.subject}>
+                            <CustomTableCell>{result.grade}</CustomTableCell>
+                            <CustomTableCell>{result.subject}</CustomTableCell>
+                            <CustomTableCell>{result.mark}</CustomTableCell>
+                            <CustomTableCell>{result.code}</CustomTableCell>
+                            <CustomTableCell>{result.examBoard}</CustomTableCell>
+                        </TableRow>)}
+                    </TableBody>
+                </Table>
+            </TableContainer>
+        </ThemeProvider>
+        <FancySubheading>STEP (Sixth Term Examination Paper in Mathematics) (2024 Series)</FancySubheading>
+        <ThemeProvider theme={theme}>
+            <TableContainer>
+                <Table aria-label="STEP results">
+                    <TableHead>
+                        <TableRow>
+                            <CustomTableCell header>Grade</CustomTableCell>
+                            <CustomTableCell header>Exam</CustomTableCell>
+                            <CustomTableCell header>Mark</CustomTableCell>
+                        </TableRow>
+                    </TableHead>
+                    <TableBody>
+                        <TableRow>
+                            <CustomTableCell>2</CustomTableCell>
+                            <CustomTableCell>STEP II</CustomTableCell>
+                            <CustomTableCell>55</CustomTableCell>
+                        </TableRow>
+                    </TableBody>
+                </Table>
+            </TableContainer>
+        </ThemeProvider>
         <FancySubheading>GCSE (2022 Series)</FancySubheading>
         <ThemeProvider theme={theme}>
             <TableContainer>
                 <Table aria-label="GCSE results">
                     <TableHead>
                         <TableRow>
-                            <TableCell>Grade</TableCell>
-                            <TableCell>Subject</TableCell>
-                            <TableCell>Percentage</TableCell>
-                            <TableCell>Code</TableCell>
-                            <TableCell>Exam Board</TableCell>
+                            <CustomTableCell header>Grade</CustomTableCell>
+                            <CustomTableCell header>Subject</CustomTableCell>
+                            <CustomTableCell header>Percentage</CustomTableCell>
+                            <CustomTableCell header>Code</CustomTableCell>
+                            <CustomTableCell header>Exam Board</CustomTableCell>
                         </TableRow>
                     </TableHead>
                     <TableBody>
                         {gcseResults.map(result => <TableRow key={result.subject}>
-                            <TableCell>{result.grade}</TableCell>
-                            <TableCell>{result.subject}</TableCell>
-                            <TableCell>{result.percentage}</TableCell>
-                            <TableCell>{result.code}</TableCell>
-                            <TableCell>{result.examBoard}</TableCell>
+                            <CustomTableCell>{result.grade}</CustomTableCell>
+                            <CustomTableCell>{result.subject}</CustomTableCell>
+                            <CustomTableCell>{result.percentage}</CustomTableCell>
+                            <CustomTableCell>{result.code}</CustomTableCell>
+                            <CustomTableCell>{result.examBoard}</CustomTableCell>
                         </TableRow>)}
                     </TableBody>
                 </Table>
@@ -124,19 +208,19 @@ export default function Qualifications() {
         <FancySubheading>UKMT Senior Mathematical Challenge</FancySubheading>
         <ThemeProvider theme={theme}>
             <TableContainer>
-                <Table aria-label="GCSE results">
+                <Table aria-label="Senior Mathematical Challenge results">
                     <TableHead>
                         <TableRow>
-                            <TableCell>Year</TableCell>
-                            <TableCell>Mark</TableCell>
-                            <TableCell>Level</TableCell>
+                            <CustomTableCell header>Year</CustomTableCell>
+                            <CustomTableCell header>Mark</CustomTableCell>
+                            <CustomTableCell header>Level</CustomTableCell>
                         </TableRow>
                     </TableHead>
                     <TableBody>
                         <TableRow>
-                            <TableCell>2023</TableCell>
-                            <TableCell>92</TableCell>
-                            <TableCell>Gold</TableCell>
+                            <CustomTableCell>2023</CustomTableCell>
+                            <CustomTableCell>92</CustomTableCell>
+                            <CustomTableCell>Gold</CustomTableCell>
                         </TableRow>
                     </TableBody>
                 </Table>
