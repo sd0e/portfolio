@@ -105,17 +105,17 @@ export default function Qualifications() {
             grade: "A*"
         },
         {
+            code: "H556",
+            subject: "Physics",
+            examBoard: "OCR",
+            mark: "244 / 270",
+            grade: "A*"
+        },
+        {
             code: "H446",
             subject: "Computer Science",
             examBoard: "OCR",
             mark: "313 / 350",
-            grade: "A*"
-        },
-        {
-            code: "H556",
-            subject: "Physics",
-            examBoard: "OCR",
-            mark: "Unknown",
             grade: "A*"
         }
     ];
