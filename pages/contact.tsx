@@ -3,7 +3,7 @@ import { Inter } from 'next/font/google';
 import Layout from '@/components/layout';
 import { useRouter } from 'next/router';
 import SkillButton from '@/components/skillbutton';
-import { MailOutlined, Twitter } from '@mui/icons-material';
+import { MailOutlined, LinkedIn } from '@mui/icons-material';
 import { Stack } from '@mui/material';
 
 const inter = Inter({ subsets: ['latin'], weight: ['500', '600', '700'] })
@@ -13,7 +13,7 @@ export default function Home() {
   const pathname = router.pathname;
 
   const displayEmail = () => {
-	window.alert('Email sebastiandoe5 at gmail dot com');
+	window.alert('Email seb at doe dot lc');
   }
 
   return (
@@ -29,8 +29,8 @@ export default function Home() {
 				<a onClick={displayEmail} target="_blank" rel="noreferrer">
 					<SkillButton Icon={MailOutlined}>Email</SkillButton>
 				</a>
-				<a href="https://twitter.com/sbd0e" target="_blank" rel="noreferrer">
-					<SkillButton Icon={Twitter}>Twitter DM</SkillButton>
+				<a href="https://www.linkedin.com/in/sdoe/" target="_blank" rel="noreferrer">
+					<SkillButton Icon={LinkedIn}>LinkedIn</SkillButton>
 				</a>
 			</Stack>
 		</Stack>
