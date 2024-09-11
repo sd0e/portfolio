@@ -3,7 +3,7 @@ import styles from './layout.module.css';
 import Image from 'next/image';
 import { Inter } from 'next/font/google';
 import { motion } from 'framer-motion';
-import React from 'react';
+import React, { useEffect } from 'react';
 import { useRouter } from 'next/router';
 import { createTheme, ThemeProvider, Stack } from '@mui/material';
 import ProgressDots from './progressDots';
@@ -74,6 +74,10 @@ export default function Layout({ children, mainPage = false, headerOnly = false,
             }
         }
     });
+
+    useEffect(() => {
+        if (next) router.prefetch(next);
+    }, [router]);
 
     return (
         <div
