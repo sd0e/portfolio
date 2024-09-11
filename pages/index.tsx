@@ -5,7 +5,7 @@ import classes from '@/styles/Home.module.css';
 import Image from 'next/image';
 import { useRouter } from 'next/router';
 import Link from 'next/link';
-import { ArrowDownwardOutlined, ArticleOutlined, Close, GitHub, WorkOutline } from '@mui/icons-material';
+import { ArrowDownwardOutlined, ArticleOutlined, Close, GitHub, LinkedIn, WorkOutline } from '@mui/icons-material';
 import { useEffect, useState } from 'react';
 import SkillButton from '@/components/skillbutton';
 import { createTheme, IconButton, Stack, ThemeProvider, Tooltip } from '@mui/material';
@@ -73,8 +73,11 @@ export default function Home() {
               <a href="https://github.com/sd0e" target="_blank" rel="noreferrer">
                 <SkillButton Icon={GitHub}>GitHub</SkillButton>
               </a>
-              <a href="https://hire.sebdoe.com" target="_blank" rel="noreferrer">
+              {/* <a href="https://hire.sebdoe.com" target="_blank" rel="noreferrer">
                 <SkillButton Icon={WorkOutline}>Hire Me</SkillButton>
+              </a> */}
+              <a href="https://linkedin.com/in/sdoe" target="_blank" rel="noreferrer">
+                <SkillButton Icon={LinkedIn}>LinkedIn</SkillButton>
               </a>
             </Stack>
           </Stack>
