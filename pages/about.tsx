@@ -19,7 +19,7 @@ export default function Home() {
       </Head>
       <p className={inter.className}>I am an 18-year-old Computing student at Imperial College London and software engineer; I love developing tools which help people achieve tasks more easily.</p>
       <p className={inter.className} style={{ marginTop: '1.5rem' }}>I am based in the UK, having previously lived in Sydney and Hong Kong.</p>
-      <InfoBox Title="Available for work experience!" Description="I am available for internships in London in 2025, please get in touch." />
+      <InfoBox Title="Available for internships!" Description="I am available for internships in London in July to September 2025, please get in touch." />
     </Layout>
   )
 }
