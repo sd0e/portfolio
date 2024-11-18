@@ -25,6 +25,10 @@ export default function ProjectButton({ id, name, date, languages, selectedSkill
         }
     });
 
+    let limitedLanguages = languages.length > 3 ? languages.slice(0, 2) : languages;
+    const languagesAreLimited = languages.length > 3;
+    if (selectedSkill && !limitedLanguages.includes(selectedSkill)) limitedLanguages = [selectedSkill, ...limitedLanguages.slice(0, 1)]
+
 	return (
 		<div className={styles.container}>
             <Link href={`/project/${id}`} aria-label={`View the project ${name}`}>
@@ -37,9 +41,10 @@ export default function ProjectButton({ id, name, date, languages, selectedSkill
                                     { featured ? <Star fontSize="small" sx={{ color: 'rgba(255, 255, 255, 0.8)' }} /> : null }
                                 </div>
                                 <span className={[styles.projectHeadline, inter.className].join(' ')}>{headline}</span>
-                                <Stack direction="row" spacing={2}>
+                                <Stack direction="row" flexWrap="wrap">
                                     <span className={[styles.projectDate, inter.className].join(' ')}>{date}</span>
-                                    {languages.map(language => <span className={[language === selectedSkill ? styles.projectLanguageSelected : styles.projectLanguage, inter.className].join(' ')} key={language}>{language}</span>)}
+                                    {limitedLanguages.map(language => <span className={[language === selectedSkill ? styles.projectLanguageSelected : styles.projectLanguage, inter.className].join(' ')} key={language}>{language}</span>)}
+                                    {languagesAreLimited ? <span className={[styles.projectLanguage, inter.className].join(' ')}>and more</span> : null}
                                 </Stack>
                             </Stack>
                         </div>

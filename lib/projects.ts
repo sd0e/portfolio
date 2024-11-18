@@ -84,7 +84,7 @@ export async function getProjectData(id: string) {
         .use(html)
         .process(matterRes.content)
     
-    const contentAsHtml = processedProjectContent.toString()
+    const contentAsHtml = processedProjectContent.toString().replaceAll('<a href', '<a style="color: #748ddb; text-decoration: underline" href')
 
     return {
         id,
