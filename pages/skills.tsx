@@ -28,21 +28,24 @@ export default function Skills() {
     }, {
       title: "TypeScript",
       monthsSince2000: 12 * 21 + 2
-    }, {
-      title: "C#",
-      monthsSince2000: 12 * 22 + 7
-    }, {
-      title: "Go",
-      monthsSince2000: 12 * 23
+    // }, {
+    //   title: "C#",
+    //   monthsSince2000: 12 * 22 + 7
+    // }, {
+    //   title: "Go",
+    //   monthsSince2000: 12 * 23
     }, {
       title: "Next.js",
       monthsSince2000: 12 * 23 + 1
-    }, {
-      title: "ASP.NET",
-      monthsSince2000: 12 * 23 + 2
+    // }, {
+    //   title: "ASP.NET",
+    //   monthsSince2000: 12 * 23 + 2
     }, {
       title: "Kotlin",
       monthsSince2000: 12 * 22 + 11
+    }, {
+      title: "Haskell",
+      monthsSince2000: 12 * 24 + 10
     }
   ];
 
@@ -71,7 +74,7 @@ export default function Skills() {
       </Head>
       <Stack direction="row" spacing={0} sx={{ flexWrap: 'wrap', gap: 2 }} style={{ marginBottom: '3rem' }}>
         <Link href="/qualifications">
-          <SkillButton Icon={SchoolOutlined}>Qualifications</SkillButton>
+          <SkillButton Icon={SchoolOutlined}>View Qualifications</SkillButton>
         </Link>
       </Stack>
       <Boxy columns={3} items={skills}>

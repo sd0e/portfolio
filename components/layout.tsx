@@ -5,8 +5,10 @@ import { Inter } from 'next/font/google';
 import { motion } from 'framer-motion';
 import React, { useEffect } from 'react';
 import { useRouter } from 'next/router';
-import { createTheme, ThemeProvider, Stack } from '@mui/material';
+import { createTheme, ThemeProvider, Stack, IconButton, Tooltip } from '@mui/material';
+import { KeyboardArrowUp, KeyboardArrowDown } from '@mui/icons-material';
 import ProgressDots from './progressDots';
+import Link from 'next/link';
 
 export const siteName = 'Seb Doe - Portfolio';
 export const siteDescription = 'Software Engineer in the UK';
@@ -150,7 +152,23 @@ export default function Layout({ children, mainPage = false, headerOnly = false,
                                 >
                                     <Stack direction="column" spacing={4}>
                                         { mainPage ? <ThemeProvider theme={theme}>
-                                            <ProgressDots num={5} selected={pageIdx || 0} />
+                                            <Stack direction="row" spacing={2} alignItems="center" justifyContent="space-between">
+                                                <ProgressDots num={5} selected={pageIdx || 0} />
+                                                <Tooltip title="Tip: scroll or use arrow keys to navigate">
+                                                    <Stack direction="row" alignItems="center">
+                                                        { prev !== undefined ? <Link href={prev} aria-label="Navigate to previous page">
+                                                            <IconButton>
+                                                                <KeyboardArrowUp sx={{ color: "rgba(255, 255, 255, 0.8)"}} fontSize="small" />
+                                                            </IconButton>
+                                                        </Link> : null }
+                                                        { pageIdx !== 5 && next !== undefined ? <Link href={next} aria-label="Navigate to next page">
+                                                            <IconButton>
+                                                                <KeyboardArrowDown sx={{ color: "rgba(255, 255, 255, 0.8)"}} fontSize="small" />
+                                                            </IconButton>
+                                                        </Link> : null }
+                                                    </Stack>
+                                                </Tooltip>
+                                            </Stack>
                                         </ThemeProvider> : null }
                                         <span className={styles.mainPageTitleText}>{title}</span>
                                     </Stack>
