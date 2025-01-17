@@ -3,7 +3,7 @@ import styles from './layout.module.css';
 import Image from 'next/image';
 import { Inter } from 'next/font/google';
 import { motion } from 'framer-motion';
-import React, { useEffect } from 'react';
+import React, { useEffect, useState } from 'react';
 import { useRouter } from 'next/router';
 import { createTheme, ThemeProvider, Stack, IconButton, Tooltip } from '@mui/material';
 import { KeyboardArrowUp, KeyboardArrowDown, KeyboardArrowLeft } from '@mui/icons-material';
@@ -23,24 +23,32 @@ export default function Layout({ children, mainPage = false, headerOnly = false,
 
     let prevY = 0;
     let lastTimestamp = 0;
+    
+    // let useNext = true;
+    const [useNext, setUseNext] = useState(true);
 
-    let useNext = true;
-    if (typeof window !== 'undefined' && scrollNav) {
-        useNext = (window as any).next;
-
-        window.addEventListener('keydown', e => {
-            if (e.timeStamp - lastTimestamp < 100 || e.repeat) return;
-            lastTimestamp = e.timeStamp;
-            if (e.key === 'ArrowDown' && next) moveNext();
-            else if (e.key === 'ArrowUp' && prev) movePrev();
-        });
+    function keydownEvent(e: KeyboardEvent) {
+        if (e.timeStamp - lastTimestamp < 100 || e.repeat) return;
+        lastTimestamp = e.timeStamp;
+        if (e.key === 'ArrowDown' && next) moveNext();
+        else if (e.key === 'ArrowUp' && prev) movePrev();
     }
 
-    if (typeof window !== 'undefined') {
-        window.addEventListener('keyup', e => {
-            if (e.key === 'ArrowLeft' && previousPageLink) movePreviousPageLink();
-        })
+    function keyupEvent(e: KeyboardEvent) {
+        if (e.key === 'ArrowLeft' && previousPageLink) movePreviousPageLink();
     }
+
+    useEffect(() => {
+        if (typeof window !== 'undefined' && scrollNav) {
+            setUseNext((window as any).next);
+
+            window.addEventListener('keydown', keydownEvent);
+        }
+
+        if (typeof window !== 'undefined' && previousPageLink) {
+            window.addEventListener('keyup', keyupEvent)
+        }
+    }, []);
 
     const variants = {
         hidden: { opacity: 0, x: 0, y: useNext ? 400 : -400 },
@@ -56,18 +64,26 @@ export default function Layout({ children, mainPage = false, headerOnly = false,
     const moveNext = (): void => {
         if (!next || !scrollNav || ((document as any).getElementById('wrapper').scrollTop + 50) < (document as any).getElementById('wrapper').scrollHeight - (window as any).visualViewport.height) return;
         (window as any).next = true;
+
+        window.removeEventListener('keydown', keydownEvent);
+
         router.push(next);
     }
 
     const movePrev = (): void => {
         if (!prev || !scrollNav || (document as any).getElementById('wrapper').scrollTop !== 0) return;
         (window as any).next = false;
+
+        window.removeEventListener('keydown', keydownEvent);
+        
         router.push(prev);
     }
 
     const movePreviousPageLink = (): void => {
-        console.log('push');
         if (!previousPageLink) return;
+        
+        window.removeEventListener('keyup', keyupEvent);
+
         router.push(previousPageLink);
     }
 
