@@ -128,7 +128,7 @@ export default function Qualifications() {
     }
 
     return (
-        <Layout headerOnly scrollNav={false} title="Qualifications" image={`/assets/SVG/skills.svg`} description="Some of my qualifications and examination results" overrideMetaDescription="A Level and GCSE results">
+        <Layout headerOnly scrollNav={false} title="Qualifications" image={`/assets/SVG/skills.svg`} description="Some of my qualifications and examination results" overrideMetaDescription="A Level and GCSE results" previousPageLink="/skills" previousPageTitle="Skills">
         <Head>
             <meta name="viewport" content="width=device-width, initial-scale=1" />
             <link rel="icon" href="/favicon.ico" />

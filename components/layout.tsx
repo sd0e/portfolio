@@ -6,7 +6,7 @@ import { motion } from 'framer-motion';
 import React, { useEffect } from 'react';
 import { useRouter } from 'next/router';
 import { createTheme, ThemeProvider, Stack, IconButton, Tooltip } from '@mui/material';
-import { KeyboardArrowUp, KeyboardArrowDown } from '@mui/icons-material';
+import { KeyboardArrowUp, KeyboardArrowDown, KeyboardArrowLeft } from '@mui/icons-material';
 import ProgressDots from './progressDots';
 import Link from 'next/link';
 
@@ -17,7 +17,7 @@ export const siteDescription = 'Software Engineer in the UK';
 
 const inter = Inter({ subsets: ['latin'], weight: ['600', '700'] });
 
-export default function Layout({ children, mainPage = false, headerOnly = false, scrollNav = true, title, description, image, prev, next, onMouseMove, pageIdx, fullHeight = false, overrideMetaDescription = siteDescription }: { children: React.ReactNode, mainPage?: boolean, headerOnly?: boolean, scrollNav?: boolean, title?: string, description?: string, image?: string, prev?: string, next?: string, onMouseMove?: (e: React.MouseEvent<HTMLDivElement, MouseEvent>) => void, pageIdx?: number, fullHeight?: boolean, overrideMetaDescription?: string }) {
+export default function Layout({ children, mainPage = false, headerOnly = false, scrollNav = true, title, description, image, prev, next, onMouseMove, pageIdx, fullHeight = false, overrideMetaDescription = siteDescription, previousPageLink, previousPageTitle }: { children: React.ReactNode, mainPage?: boolean, headerOnly?: boolean, scrollNav?: boolean, title?: string, description?: string, image?: string, prev?: string, next?: string, onMouseMove?: (e: React.MouseEvent<HTMLDivElement, MouseEvent>) => void, pageIdx?: number, fullHeight?: boolean, overrideMetaDescription?: string, previousPageLink?: string, previousPageTitle?: string }) {
     const gradientImage = image || '@/assets/SVG/index.svg';
     const router = useRouter();
 
@@ -34,6 +34,12 @@ export default function Layout({ children, mainPage = false, headerOnly = false,
             if (e.key === 'ArrowDown' && next) moveNext();
             else if (e.key === 'ArrowUp' && prev) movePrev();
         });
+    }
+
+    if (typeof window !== 'undefined') {
+        window.addEventListener('keydown', e => {
+            if (e.key === 'ArrowLeft' && previousPageLink) movePreviousPageLink();
+        })
     }
 
     const variants = {
@@ -57,6 +63,12 @@ export default function Layout({ children, mainPage = false, headerOnly = false,
         if (!prev || !scrollNav || (document as any).getElementById('wrapper').scrollTop !== 0) return;
         (window as any).next = false;
         router.push(prev);
+    }
+
+    const movePreviousPageLink = (): void => {
+        console.log('push');
+        if (!previousPageLink) return;
+        router.push(previousPageLink);
     }
 
     const theme = createTheme({
@@ -168,6 +180,16 @@ export default function Layout({ children, mainPage = false, headerOnly = false,
                                                         </Link> : null }
                                                     </Stack>
                                                 </Tooltip>
+                                            </Stack>
+                                        </ThemeProvider> : null }
+                                        { previousPageLink && previousPageTitle ? <ThemeProvider theme={theme}>
+                                            <Stack direction="row" spacing={2} alignItems="center">
+                                                <Link href={previousPageLink} aria-label="Navigate to previous page">
+                                                    <IconButton>
+                                                        <KeyboardArrowLeft sx={{ color: "rgba(255, 255, 255, 0.8)"}} fontSize="small" />
+                                                    </IconButton>
+                                                </Link>
+                                                <p style={{ fontWeight: 600, fontSize: "1rem" }}>{previousPageTitle}</p>
                                             </Stack>
                                         </ThemeProvider> : null }
                                         <span className={styles.mainPageTitleText}>{title}</span>
