@@ -37,7 +37,7 @@ export default function Layout({ children, mainPage = false, headerOnly = false,
     }
 
     if (typeof window !== 'undefined') {
-        window.addEventListener('keydown', e => {
+        window.addEventListener('keyup', e => {
             if (e.key === 'ArrowLeft' && previousPageLink) movePreviousPageLink();
         })
     }
