@@ -1,0 +1,109 @@
+.experienceHolder {
+	display: flex;
+	margin-bottom: 2rem;
+}
+
+.experienceLeft {
+	position: inherit;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	margin-right: 2rem;
+	margin-top: 0.4rem;
+}
+
+.experienceIconHolder {
+	display: block;
+	position: absolute;
+	background-color: #808080;
+	width: 0.8rem;
+	height: 0.8rem;
+	border-radius: 1rem;
+	z-index: 2;
+}
+
+.experienceIconCurrent {
+	position: absolute;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	width: 2rem;
+	height: 2rem;
+	border-radius: 1rem;
+	z-index: 2;
+	top: -0.2rem;
+}
+
+.inner {
+	position: absolute;
+	top: 0.6rem;
+	left: 0.6rem;
+	border: 2px solid white;
+	background-color: #e25454;
+	width: 0.8rem;
+	height: 0.8rem;
+	border-radius: 1rem;
+	z-index: 4;
+}
+
+.pulsing {
+	position: absolute;
+	width: 2rem;
+	height: 2rem;
+	background-color: #e25454;
+	filter: opacity(0.4);
+	border-radius: 1rem;
+	z-index: 2;
+	animation: pulse 2s ease-in-out infinite;
+}
+
+@keyframes pulse {
+	0% {
+		filter: opacity(0.2);
+		height: 0.8rem;
+		width: 0.8rem;
+	}
+	10% {
+		filter: opacity(0.2);
+		height: 0.8rem;
+		width: 0.8rem;
+	}
+	55% {
+		filter: opacity(0.9);
+		height: 1.4rem;
+		width: 1.4rem;
+	}
+	100% {
+		filter: opacity(0.2);
+		height: 0.8rem;
+		width: 0.8rem;
+	}
+}
+
+.experienceInfoOuter {
+	display: block;
+	color: rgba(255, 255, 255, 0.9);
+}
+
+.experienceTitle {
+	display: block;
+	font-size: 1.3rem;
+	margin-bottom: 0.3rem;
+}
+
+.experienceInformation {
+	font-size: 0.9rem;
+	display: block;
+	margin-bottom: 1rem;
+	color: rgba(255, 255, 255, 0.6);
+}
+
+.experienceDate {
+	color: rgba(255, 255, 255, 0.6);
+}
+
+.experienceContent {
+	display: block;
+	font-weight: 500;
+	color: rgba(255, 255, 255, 0.8);
+}

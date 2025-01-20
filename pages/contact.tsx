@@ -17,7 +17,7 @@ export default function Home() {
   }
 
   return (
-    <Layout mainPage title="Contact" image={`/assets/SVG${pathname}.svg`} prev="/projects" pageIdx={5} overrideMetaDescription="Get in contact with me">
+    <Layout mainPage title="Contact" image={`/assets/SVG${pathname}.svg`} prev="/projects" pageIdx={6} overrideMetaDescription="Get in contact with me">
 		<Head>
 			<meta name="viewport" content="width=device-width, initial-scale=1" />
 			<link rel="icon" href="/favicon.ico" />

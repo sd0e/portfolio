@@ -181,7 +181,7 @@ export default function Layout({ children, mainPage = false, headerOnly = false,
                                     <Stack direction="column" spacing={4}>
                                         { mainPage ? <ThemeProvider theme={theme}>
                                             <Stack direction="row" spacing={2} alignItems="center" justifyContent="space-between">
-                                                <ProgressDots num={5} selected={pageIdx || 0} />
+                                                <ProgressDots num={6} selected={pageIdx || 0} />
                                                 <Tooltip title="Tip: scroll or use arrow keys to navigate">
                                                     <Stack direction="row" alignItems="center">
                                                         { prev !== undefined ? <Link href={prev} aria-label="Navigate to previous page">
@@ -189,7 +189,7 @@ export default function Layout({ children, mainPage = false, headerOnly = false,
                                                                 <KeyboardArrowUp sx={{ color: "rgba(255, 255, 255, 0.8)"}} fontSize="small" />
                                                             </IconButton>
                                                         </Link> : null }
-                                                        { pageIdx !== 5 && next !== undefined ? <Link href={next} aria-label="Navigate to next page">
+                                                        { pageIdx !== 6 && next !== undefined ? <Link href={next} aria-label="Navigate to next page">
                                                             <IconButton>
                                                                 <KeyboardArrowDown sx={{ color: "rgba(255, 255, 255, 0.8)"}} fontSize="small" />
                                                             </IconButton>

@@ -66,7 +66,7 @@ export default function Skills() {
   }
 
   return (
-    <Layout mainPage title="Skills" description="Some languages and frameworks I have used" image={`/assets/SVG${pathname}.svg`} prev="/about" next="/projects" pageIdx={3} overrideMetaDescription="A selection of languages and frameworks I have worked with before">
+    <Layout mainPage title="Skills" description="Some languages and frameworks I have used" image={`/assets/SVG${pathname}.svg`} prev="/experience" next="/projects" pageIdx={4} overrideMetaDescription="A selection of languages and frameworks I have worked with before">
       <Head>
         <meta name="viewport" content="width=device-width, initial-scale=1" />
         <link rel="icon" href="/favicon.ico" />
