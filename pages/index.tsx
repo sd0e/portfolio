@@ -8,6 +8,7 @@ import Link from 'next/link';
 import { ArrowDownwardOutlined, ArticleOutlined, Close, GitHub, LinkedIn, WorkOutline } from '@mui/icons-material';
 import { useEffect, useState } from 'react';
 import SkillButton from '@/components/skillbutton';
+import { motion } from 'framer-motion';
 import { createTheme, IconButton, Stack, ThemeProvider, Tooltip } from '@mui/material';
 
 const inter = Inter({ subsets: ['latin'], weight: ['600', '700'] });
@@ -38,6 +39,12 @@ export default function Home() {
       router.replace('/', undefined, { shallow: true });
     }
   }, [router]);
+
+  const variants = {
+      hidden: { opacity: 0, x: 0, y: 0 },
+      enter: { opacity: 1, x: 0, y: 0 },
+      exit: { opacity: 0, x: 0, y: 0 },
+  }
 
   const theme = createTheme({
     palette: {
@@ -83,15 +90,23 @@ export default function Home() {
           </Stack>
         </div>
       </div>
-      <div className={classes.bottom}>
-        <Tooltip title="Scroll or swipe between pages">
-          <Link href="/about">
-            <div className={classes.scrollHolder}>
-              <span className={[inter.className, classes.scrollText].join(' ')}>Explore</span>
-              <ArrowDownwardOutlined className={classes.scrollIcon} />
-            </div>
-          </Link>
-        </Tooltip>
+      <div className={classes.bottom}>  
+        <motion.div
+                  variants={variants}
+                  initial="hidden"
+                  animate="enter"
+                  exit="exit"
+                  transition={{ type: 'ease-in-out', duration: 0.25, delay: 0.5 }}
+        >
+          <Tooltip title="Scroll or swipe between pages">
+            <Link href="/about">
+              <div className={classes.scrollHolder}>
+                <span className={[inter.className, classes.scrollText].join(' ')}>Explore</span>
+                <ArrowDownwardOutlined className={classes.scrollIcon} />
+              </div>
+            </Link>
+          </Tooltip>
+        </motion.div>
       </div>
       { errorAlert ? <div className={classes.alert}>
         <ThemeProvider theme={theme}>

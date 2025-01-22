@@ -17,7 +17,7 @@ export default function Home() {
         <link rel="icon" href="/favicon.ico" />
         <link rel="canonical" href="https://doe.lc/about" />
       </Head>
-      <p className={inter.className}>I am a 19-year-old Computing student at Imperial College London and software engineer; I love developing tools which help people achieve tasks more easily.</p>
+      <p className={inter.className}>I am a 19-year-old Computing undergraduate at Imperial College London and software engineer; I love developing tools which help people achieve tasks more easily.</p>
       <p className={inter.className} style={{ marginTop: '1.5rem' }}>I am based in the UK, having previously lived in Sydney and Hong Kong.</p>
       {/* <InfoBox Title="Available for internships!" Description="I am available for internships in London from July to September 2025, please get in touch." /> */}
     </Layout>
