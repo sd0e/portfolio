@@ -17,7 +17,7 @@ export default function Experience() {
 		"title": "Computing (BEng)",
 		"location": "Imperial College London",
 		"date": "Sep 2024 - Jun 2027",
-		"content": "Currently in my first year of an undergraduate degree in Computing.",
+		"content": "Currently in my second year of an undergraduate degree in Computing.",
 		"current": true,
 	},
 	{
